@@ -341,14 +341,10 @@
                 <div class="mb-3">
                     <select id="stat-room-filter" class="input-field shape-input py-2.5 text-[14px] font-black shadow-sm" onchange="renderLeaderboard()"><option value="all">รวมทั้งโรงเรียน</option></select>
                 </div>
-                <!-- Top 5 Best -->
-                <div class="glass-panel shape-card p-4 border-t-[5px] border-t-emerald-400 mb-4">
-                    <h3 class="text-[12px] font-black text-emerald-600 uppercase tracking-widest mb-3 glow-text text-center"><i class="fa-solid fa-arrow-trend-up mr-1"></i> คะแนนสูงสุด 5 อันดับแรก (ทำดี)</h3>
-                    <div id="stat-best-list"></div>
-                </div>
-                <!-- Top 10 Worst -->
+                
+                <!-- หมวดเฝ้าระวัง 10 อันดับแรก (เฉพาะคะแนนต่ำกว่า 100) -->
                 <div class="glass-panel shape-card p-4 border-t-[5px] border-t-yellow-400">
-                    <h3 class="text-[12px] font-black text-yellow-600 uppercase tracking-widest mb-3 glow-text text-center"><i class="fa-solid fa-arrow-trend-down mr-1"></i> คะแนนต่ำสุด 10 อันดับแรก (เฝ้าระวัง)</h3>
+                    <h3 class="text-[12px] font-black text-yellow-600 uppercase tracking-widest mb-3 glow-text text-center"><i class="fa-solid fa-arrow-trend-down mr-1"></i> นักเรียนที่ถูกหักคะแนน (เฝ้าระวัง)</h3>
                     <div id="stat-worst-list"></div>
                 </div>
             </div>
@@ -551,7 +547,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const uploadEl = document.getElementById('set-bg-upload'); if(uploadEl) uploadEl.addEventListener('change', handleImageUpload);
             const logoUploadEl = document.getElementById('set-logo-upload'); if(logoUploadEl) logoUploadEl.addEventListener('change', handleLogoUpload);
-            initCriteriaTable(); applyPrefs(); setupPWA();
+            applyPrefs(); setupPWA();
             if(CONFIG.GAS_URL) { fetchStudentData(); } 
             else { document.getElementById('splash-loading-text').innerText = "กรุณาตั้งค่าลิงก์ฐานข้อมูล..."; setTimeout(() => openSettingsView(), 1500); }
         });
@@ -614,9 +610,6 @@
             document.getElementById('filter-room-modal').innerHTML = opsMod;
         }
 
-        function initCriteriaTable() { /* ซ่อนไว้เพื่อความกระชับ */ }
-
-        // ฟังก์ชันสร้างโล่เกียรติยศที่แสดงตัวเลข
         function getSuspensionBadge(count) {
             if (!count || count <= 0) return '';
             if (count === 1) return `<div class="mt-2 text-[11px] font-black text-amber-700 bg-amber-50 px-2.5 py-1.5 rounded-lg border border-amber-300 inline-flex items-center gap-1.5 shadow-sm w-full"><div class="relative w-5 h-5 flex items-center justify-center"><i class="fa-solid fa-shield text-amber-500 text-lg absolute"></i><span class="text-[10px] text-white font-black absolute z-10">1</span></div> <span>ประวัติพักการเรียน 1 ครั้ง</span></div>`;
@@ -633,7 +626,6 @@
                 let statusClass = student.score <= 0 ? 'bg-red-100 text-red-700' : (student.score <= 30 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700');
                 let statusText = student.score <= 0 ? 'วิกฤต/พักการเรียน' : (student.score <= 30 ? 'เฝ้าระวัง' : 'ปกติ');
 
-                // แจ้งเตือนสถานะจากครูประจำชั้น (คอลัมน์ E)
                 let teacherStatusHtml = '';
                 if(student.status === 'รอเชิญผู้ปกครอง') {
                     teacherStatusHtml = `<div class="mt-2 text-[11px] font-black text-orange-700 bg-orange-100 px-2.5 py-1.5 rounded-lg border border-orange-300 shadow-sm w-full animate-pulse"><i class="fa-solid fa-envelope-open-text mr-1"></i> สถานะ: รอเชิญผู้ปกครอง</div>`;
@@ -743,27 +735,20 @@
             let filteredStudents = cachedStudents;
             if(rFilter !== 'all') filteredStudents = cachedStudents.filter(s => s.room === rFilter);
             
-            // เรียงคะแนนเพื่อหาตัวท็อป และ ตัวบ๊วย
-            const sortedBest = [...filteredStudents].sort((a,b) => b.score - a.score);
+            // เรียงคะแนนจากน้อยไปมาก
             const sortedWorst = [...filteredStudents].sort((a,b) => a.score - b.score);
-            
-            const bestContainer = document.getElementById('stat-best-list'); bestContainer.innerHTML = '';
             const worstContainer = document.getElementById('stat-worst-list'); worstContainer.innerHTML = '';
             
-            if(filteredStudents.length === 0) {
-                bestContainer.innerHTML = `<div class="text-center py-4 text-slate-400 text-[11px] font-bold">ไม่มีข้อมูล</div>`;
-                worstContainer.innerHTML = `<div class="text-center py-4 text-slate-400 text-[11px] font-bold">ไม่มีข้อมูล</div>`;
+            // กรองให้เหลือเฉพาะคนที่มีคะแนน "น้อยกว่า 100" เท่านั้น
+            let studentsToWatch = sortedWorst.filter(st => st.score < 100);
+
+            if(studentsToWatch.length === 0) {
+                worstContainer.innerHTML = `<div class="text-center py-6 border-2 border-dashed border-emerald-200 bg-emerald-50 rounded-[16px]"><div class="w-10 h-10 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-2 text-xl shadow-sm"><i class="fa-solid fa-check"></i></div><p class="font-black text-emerald-600 text-[13px]">ไม่มีนักเรียนที่ถูกหักคะแนน</p></div>`;
                 return;
             }
 
-            // Top 5 Best
-            sortedBest.slice(0, 5).forEach((st, index) => {
-                let rankIcon = index === 0 ? `<i class="fa-solid fa-medal text-xl text-emerald-500"></i>` : `<span class="text-sm font-black text-emerald-600/50">${index+1}</span>`;
-                bestContainer.innerHTML += `<div class="flex items-center justify-between p-2.5 border-b border-slate-100 last:border-0"><div class="flex items-center gap-3"><div class="w-6 text-center">${rankIcon}</div><div class="text-[13px] font-black text-slate-700">${st.name} <span class="text-[9px] text-slate-400 ml-1">(${st.room})</span></div></div><div class="font-black text-[14px] text-emerald-600">${st.score}</div></div>`;
-            });
-
-            // Top 10 Worst
-            sortedWorst.slice(0, 10).forEach((st, index) => {
+            // แสดงแค่ 10 อันดับที่โดนหักคะแนนเยอะสุด (คะแนนน้อยสุด 10 คน)
+            studentsToWatch.slice(0, 10).forEach((st, index) => {
                 let rankStyle = index === 0 ? 'bg-gradient-to-r from-red-50 to-red-100 border-red-200' : (index === 1 ? 'bg-gradient-to-r from-orange-50 to-orange-100 border-orange-200' : 'bg-white border-slate-100');
                 let rankIcon = index === 0 ? `<i class="fa-solid fa-circle-exclamation text-xl text-red-500"></i>` : `<span class="text-sm font-black text-slate-400">${index+1}</span>`;
                 let scoreColor = st.score <= 0 ? 'text-red-600' : (st.score <= 30 ? 'text-amber-600' : 'text-emerald-600');
