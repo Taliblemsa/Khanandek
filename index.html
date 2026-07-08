@@ -128,8 +128,10 @@
         <div id="custom-bg-overlay" class="custom-bg-overlay hidden"></div>
     </div>
 
+    <!-- UI Elements -->
     <div id="toast"><span id="toast-icon"></span><span id="toast-message" class="text-shadow-none"></span></div>
 
+    <!-- Confirm Modal -->
     <div id="confirm-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center">
             <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4 bg-red-100 text-red-500 shadow-inner text-shadow-none"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -142,6 +144,7 @@
         </div>
     </div>
 
+    <!-- PIN Modal -->
     <div id="pin-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center">
             <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4 bg-blue-100 text-blue-600 shadow-inner text-shadow-none"><i class="fa-solid fa-lock"></i></div>
@@ -155,6 +158,7 @@
         </div>
     </div>
 
+    <!-- Manage Status Modal -->
     <div id="status-manage-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center relative !p-6 !max-w-sm">
             <button onclick="this.closest('.modal-bg').classList.remove('active')" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 rounded-full text-slate-500 font-black"><i class="fa-solid fa-xmark"></i></button>
@@ -179,39 +183,47 @@
         </div>
     </div>
 
+    <!-- Guide Modal สำหรับโรงเรียนอื่นนำไปใช้ -->
     <div id="guide-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center relative w-full max-w-md p-6">
             <button onclick="this.closest('.modal-bg').classList.remove('active')" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 rounded-full text-slate-500 font-black"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-lg font-black text-blue-600 mb-4 w-full text-center border-b border-slate-100 pb-3"><i class="fa-solid fa-share-nodes"></i> นำระบบนี้ไปใช้กับโรงเรียนคุณ</h3>
+            <h3 class="text-[16px] font-black text-blue-600 mb-4 w-full text-center border-b border-slate-100 pb-3"><i class="fa-solid fa-share-nodes"></i> นำระบบนี้ไปใช้กับโรงเรียนคุณ</h3>
             <div class="text-[13px] text-slate-700 space-y-3 font-bold w-full overflow-y-auto max-h-[60vh] scroll-fine pr-2">
-                <p class="text-center text-slate-500 mb-2">ทำตาม 3 ขั้นตอนง่ายๆ เพื่อสร้างฐานข้อมูลแบบ PWA เป็นของคุณเองฟรี 100%:</p>
+                <p class="text-center text-slate-500 mb-2">สร้างฐานข้อมูล PWA เป็นของคุณเองฟรี 100%:</p>
                 
                 <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
-                    <span class="text-blue-700 font-black text-[14px] mb-1 block"><i class="fa-solid fa-1"></i> คัดลอกแม่แบบฐานข้อมูล</span>
-                    กดลิงก์ด้านล่างนี้ ระบบจะทำสำเนา Google Sheets พร้อมโค้ดหลังบ้าน ไปไว้ใน Google Drive ของท่านโดยอัตโนมัติ<br>
-                    <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="bg-blue-600 text-white px-3 py-2 rounded-lg mt-3 inline-flex items-center gap-2 hover:bg-blue-700 transition"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบ</a>
+                    <span class="text-blue-700 font-black text-[14px] mb-2 block"><i class="fa-solid fa-1"></i> คัดลอกแม่แบบ & เปลี่ยนรายชื่อ</span>
+                    <p class="mb-2 font-medium text-[12px] leading-relaxed">ไฟล์แม่แบบที่คัดลอกไป จะมีรายชื่อนักเรียนของ "โรงเรียนสันติธรรมวิทยามูลนิธิ" ติดอยู่ คุณครูต้องลบชื่อเดิมออก และพิมพ์ข้อมูลนักเรียนของท่านใหม่ดังนี้:</p>
+                    <ul class="list-disc ml-5 mb-3 space-y-1 text-slate-600 font-black text-[12px]">
+                        <li><b>คอลัมน์ A (Name):</b> พิมพ์ <span class="text-red-500">ชื่อ-สกุล</span> นักเรียน</li>
+                        <li><b>คอลัมน์ B (Room):</b> พิมพ์ <span class="text-blue-500">ชั้น/ห้องเรียน</span> (เช่น 1/1, 1/2)</li>
+                        <li><b>คอลัมน์ C (Score):</b> ใส่คะแนน <span class="text-emerald-500">100</span> ทุกคน</li>
+                        <li><b>คอลัมน์ D, E, F:</b> <u class="text-amber-600">ปล่อยทิ้งว่างไว้</u> (ระบบจะจัดการเอง)</li>
+                    </ul>
+                    <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="w-full bg-blue-600 text-white px-3 py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition font-black"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบ</a>
                 </div>
                 
                 <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-sm">
                     <span class="text-amber-700 font-black text-[14px] mb-2 block"><i class="fa-solid fa-2"></i> เปิดใช้งานระบบ API (Deploy)</span>
-                    <ul class="list-decimal ml-4 space-y-1.5 text-slate-600">
-                        <li>ใน Google Sheets ที่เพิ่งก๊อปปี้มา ให้คลิกเมนู <b>ส่วนขยาย (Extensions)</b> > <b>Apps Script</b></li>
-                        <li>สังเกตมุมขวาบน กดปุ่ม <b>การทำให้ใช้งานได้ (Deploy)</b> > เลือก <b>การทำให้ใช้งานได้รายการใหม่ (New deployment)</b></li>
-                        <li>คลิกสัญลักษณ์ฟันเฟือง ⚙️ เลือก <b>เว็บแอป (Web app)</b></li>
-                        <li>ตรงสิทธิ์การเข้าถึง (Who has access) <u class="text-red-500">ต้องเปลี่ยนเป็น</u> <b>"ทุกคน (Anyone)"</b></li>
+                    <ul class="list-decimal ml-4 space-y-1.5 text-slate-600 font-bold text-[12px] leading-relaxed">
+                        <li>ใน Google Sheets ที่เพิ่งทำสำเนาไป ให้คลิกเมนู <b>ส่วนขยาย (Extensions)</b> > <b>Apps Script</b></li>
+                        <li>สังเกตมุมขวาบน กดปุ่มสีน้ำเงิน <b>การทำให้ใช้งานได้ (Deploy)</b> > <b>การทำให้ใช้งานได้รายการใหม่ (New deployment)</b></li>
+                        <li>คลิกสัญลักษณ์ฟันเฟือง ⚙️ ทางซ้าย เลือก <b>เว็บแอป (Web app)</b></li>
+                        <li>ตรงสิทธิ์การเข้าถึง (Who has access) ด้านล่าง <u class="text-red-500 font-black">ต้องเปลี่ยนเป็น "ทุกคน (Anyone)"</u></li>
                         <li>กด <b>Deploy</b> (กดยืนยันสิทธิ์อีเมลและกด Advanced > Allow ให้เรียบร้อย)</li>
                     </ul>
                 </div>
                 
                 <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 shadow-sm">
                     <span class="text-emerald-700 font-black text-[14px] mb-1 block"><i class="fa-solid fa-3"></i> เชื่อมต่อแอปพลิเคชัน</span>
-                    คัดลอก <b>"URL เว็บแอป"</b> (ที่ลงท้ายด้วย <i>/exec</i>) จากขั้นตอนที่แล้ว กลับมาวางในช่อง <u>ลิงก์ฐานข้อมูล</u> ที่หน้าตั้งค่าของแอปนี้ แล้วกดบันทึก เป็นอันเสร็จสิ้น!
+                    <p class="font-medium text-[12px] leading-relaxed">คัดลอก <b>"URL เว็บแอป"</b> (ที่ลงท้ายด้วย <i>/exec</i>) จากขั้นตอนที่แล้ว กลับมาวางในช่อง <u>ลิงก์ฐานข้อมูล</u> ที่หน้าตั้งค่าของแอปนี้ แล้วกดบันทึก เป็นอันเสร็จสิ้น!</p>
                 </div>
             </div>
             <button onclick="this.closest('.modal-bg').classList.remove('active')" class="mt-5 w-full bg-slate-800 text-white font-black py-3 shape-btn btn-press shadow-md text-[15px]">เข้าใจแล้ว</button>
         </div>
     </div>
 
+    <!-- Multi-Select Student Modal -->
     <div id="student-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
             <button onclick="closeStudentModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 btn-press"><i class="fa-solid fa-arrow-left"></i></button>
@@ -236,6 +248,7 @@
         <div class="flex-1 overflow-y-auto scroll-fine p-2 space-y-1 bg-slate-50" id="modal-student-list"></div>
     </div>
 
+    <!-- Multi-Select Offense Modal -->
     <div id="offense-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
             <button onclick="closeOffenseModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 btn-press"><i class="fa-solid fa-arrow-left"></i></button>
@@ -247,8 +260,9 @@
 
     <main class="container mx-auto max-w-md px-6 pt-10 pb-12 flex-1 w-full flex flex-col h-full overflow-hidden text-left relative z-10">
         
+        <!-- ================= VIEW 0: SPLASH ================= -->
         <section id="view-splash" class="flex flex-col items-center justify-center flex-1 min-h-[70vh] w-full select-none">
-            <div class="w-32 h-32 bg-white rounded-full shadow-2xl flex items-center justify-center mb-6 logo-pulse p-3 border border-slate-100/50 app-logo-container"></div>
+            <div class="w-32 h-32 bg-white/20 rounded-full shadow-2xl flex items-center justify-center mb-6 logo-pulse p-3 border border-white/40 backdrop-blur-md app-logo-container"></div>
             <h1 class="text-[34px] font-black text-accent leading-none tracking-tight glow-text text-center w-full">ระบบคะแนน</h1>
             <p class="text-[16px] font-extrabold text-slate-600 mt-2 tracking-wide opacity-90 glow-text text-center w-full app-school-name-display">กำลังโหลด...</p>
             <div class="mt-8 flex items-center justify-center gap-2 bg-white/40 px-5 py-2.5 rounded-full border border-white/60 shadow-sm backdrop-blur-md">
@@ -257,41 +271,61 @@
             </div>
         </section>
 
-        <section id="view-home" class="hidden flex flex-col items-center justify-center flex-1">
-            <header class="text-center mb-10 w-full flex flex-col items-center">
-                <div class="w-24 h-24 bg-white rounded-full shadow-2xl flex items-center justify-center mb-5 relative overflow-hidden group app-logo-container logo-pulse p-2 border border-slate-100"></div>
-                <h1 class="text-[38px] font-black text-accent leading-none tracking-tight glow-text text-center w-full">บันทึกคะแนน</h1>
-                <p class="text-[15px] font-bold text-slate-600 mt-2 tracking-wide app-school-name-display opacity-90 glow-text text-center w-full">ความประพฤติ</p>
+        <!-- ================= VIEW 1: HOME (Premium Dashboard) ================= -->
+        <section id="view-home" class="hidden flex flex-col items-center justify-center flex-1 w-full px-1">
+            <header class="text-center mb-8 w-full flex flex-col items-center mt-2">
+                <div class="w-28 h-28 bg-white/30 rounded-[2rem] shadow-2xl flex items-center justify-center mb-5 relative overflow-hidden group app-logo-container p-2 border border-white/50 backdrop-blur-md logo-pulse"></div>
+                <h1 class="text-[34px] font-black text-accent leading-none tracking-tight glow-text text-center w-full">จัดการความประพฤติ</h1>
+                <p class="text-[14px] font-black text-slate-600 mt-2 tracking-widest app-school-name-display uppercase opacity-90 glow-text text-center w-full"></p>
             </header>
 
-            <div class="glass-panel shape-card w-full p-8 text-center relative flex flex-col items-center">
-                <div id="action-buttons-container" class="flex flex-col gap-3 w-full">
-                    <button onclick="switchView('view-dashboard')" class="btn-press w-full btn-primary font-black text-lg py-4.5 shape-btn shadow-xl flex items-center justify-center gap-3 text-shadow-none border border-white/20">
-                        <i class="fa-solid fa-magnifying-glass-chart text-xl"></i> เช็คคะแนน (นักเรียน)
-                    </button>
-                    <button onclick="openFormWithPin('form')" class="flex btn-press w-full bg-emerald-500 text-white font-black text-lg py-4.5 shape-btn shadow-xl items-center justify-center gap-3 text-shadow-none border border-white/20">
-                        <i class="fa-solid fa-user-shield text-xl"></i> บันทึกการหักคะแนน (ครู)
-                    </button>
-                    <div class="grid grid-cols-2 gap-3 w-full mt-3">
-                        <button onclick="openStatsView()" class="btn-press w-full bg-purple-500/90 text-white font-bold py-3.5 shape-btn shadow-lg flex items-center justify-center gap-2 text-shadow-none border border-white/20">
-                            <i class="fa-solid fa-ranking-star text-white/90"></i> ผู้นำ & สถิติ
-                        </button>
-                        <button onclick="switchView('view-guide')" class="btn-press w-full bg-accent text-white font-bold py-3.5 shape-btn shadow-lg flex items-center justify-center gap-2 text-shadow-none border border-white/10">
-                            <i class="fa-solid fa-book-open-reader text-white/70"></i> เรียนรู้วิธีใช้
-                        </button>
+            <div class="w-full flex flex-col gap-3">
+                <!-- Record Button (Primary) -->
+                <button onclick="openFormWithPin('form')" class="glass-panel shape-card relative overflow-hidden p-5 flex items-center gap-4 text-left btn-press group border-l-[6px] border-l-emerald-500 shadow-lg">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center text-2xl shadow-md shrink-0"><i class="fa-solid fa-user-shield"></i></div>
+                    <div class="flex-1">
+                        <h3 class="text-[18px] font-black text-accent tracking-wide">บันทึกการหักคะแนน</h3>
+                        <p class="text-[12px] text-slate-500 font-bold mt-0.5">ครูผู้สอน/ประจำชั้น (ต้องใช้ PIN)</p>
                     </div>
-                    <button onclick="openSettingsView()" class="btn-press w-full bg-white/70 text-slate-700 font-bold py-3.5 shape-btn border border-white flex items-center justify-center gap-2 text-shadow-none shadow-sm mt-3">
-                        <i class="fa-solid fa-gear text-slate-500"></i> ตั้งค่าแอปพลิเคชัน
+                    <div class="w-8 h-8 rounded-full bg-slate-100/50 flex items-center justify-center text-slate-400"><i class="fa-solid fa-chevron-right"></i></div>
+                </button>
+
+                <!-- Dashboard / Leaderboard Grid -->
+                <div class="grid grid-cols-2 gap-3 w-full">
+                    <!-- Check Score -->
+                    <button onclick="switchView('view-dashboard')" class="glass-panel shape-card p-5 flex flex-col items-center text-center btn-press group border-t-[4px] border-t-blue-500 shadow-md">
+                        <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-3 shadow-inner"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <h3 class="text-[14px] font-black text-accent tracking-wide">ตรวจสอบคะแนน</h3>
+                        <p class="text-[10px] text-slate-500 font-bold mt-1">รายชื่อและสลิป</p>
+                    </button>
+
+                    <!-- Leaderboard -->
+                    <button onclick="openStatsView()" class="glass-panel shape-card p-5 flex flex-col items-center text-center btn-press group border-t-[4px] border-t-purple-500 shadow-md">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-3 shadow-inner"><i class="fa-solid fa-ranking-star"></i></div>
+                        <h3 class="text-[14px] font-black text-accent tracking-wide">ผู้นำ & สถิติ</h3>
+                        <p class="text-[10px] text-slate-500 font-bold mt-1">สรุปข้อมูลทั้งโรงเรียน</p>
                     </button>
                 </div>
                 
-                <div id="system-error-msg" class="hidden text-red-600 text-[14px] mt-6 font-black bg-red-50/90 backdrop-blur-md p-5 shape-card border border-red-200 text-shadow-none w-full text-left shadow-inner">
-                    <div class="flex items-center gap-2 mb-2 text-red-700 text-base"><i class="fa-solid fa-triangle-exclamation"></i><span>ไม่สามารถโหลดข้อมูลได้</span></div>
-                    <div id="error-details" class="font-bold text-[12px] text-red-500/90 leading-relaxed"></div>
+                <div class="grid grid-cols-2 gap-3 w-full mt-1">
+                    <!-- Settings -->
+                    <button onclick="openSettingsView()" class="glass-panel shape-btn p-4 flex items-center justify-center gap-2 btn-press group shadow-sm border border-white/40">
+                        <i class="fa-solid fa-gear text-slate-500"></i> <span class="text-[13px] font-black text-slate-700">ตั้งค่าระบบ</span>
+                    </button>
+                    <!-- Guide -->
+                    <button onclick="switchView('view-guide')" class="glass-panel shape-btn p-4 flex items-center justify-center gap-2 btn-press group shadow-sm border border-white/40">
+                        <i class="fa-solid fa-book-open-reader text-slate-500"></i> <span class="text-[13px] font-black text-slate-700">เรียนรู้วิธีใช้</span>
+                    </button>
                 </div>
+            </div>
+            
+            <div id="system-error-msg" class="hidden text-red-600 text-[14px] mt-6 font-black bg-red-50/90 backdrop-blur-md p-5 shape-card border border-red-200 text-shadow-none w-full text-left shadow-inner">
+                <div class="flex items-center gap-2 mb-2 text-red-700 text-base"><i class="fa-solid fa-triangle-exclamation"></i><span>ไม่สามารถโหลดข้อมูลได้</span></div>
+                <div id="error-details" class="font-bold text-[12px] text-red-500/90 leading-relaxed"></div>
             </div>
         </section>
 
+        <!-- ================= VIEW 2: GUIDE ================= -->
         <section id="view-guide" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -314,6 +348,7 @@
             </div>
         </section>
 
+        <!-- ================= VIEW 3: DASHBOARD (STUDENT) ================= -->
         <section id="view-dashboard" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -332,6 +367,7 @@
             <div class="overflow-y-auto scroll-fine flex-1 space-y-4 px-1 pb-10" id="dashboard-container"></div>
         </section>
 
+        <!-- ================= VIEW 3.5: LEADERBOARD & STATS ================= -->
         <section id="view-stats" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -362,6 +398,7 @@
             </div>
         </section>
 
+        <!-- ================= VIEW 4: BATCH RECORD FORM (TEACHER) ================= -->
         <section id="view-form" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-4 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -413,6 +450,7 @@
             </div>
         </section>
 
+        <!-- ================= VIEW 5: SLIP EXPORT ================= -->
         <section id="view-slip" class="hidden flex-col h-full overflow-hidden">
             <div class="flex items-center justify-between mb-4 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-dashboard')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -459,6 +497,7 @@
             </div>
         </section>
 
+        <!-- ================= VIEW 6: SETTINGS ================= -->
         <section id="view-settings" class="hidden flex-1 flex flex-col h-full">
             <div class="flex items-center justify-between mb-6 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="cancelSettingsAndGoBack()"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -476,7 +515,7 @@
                     
                     <div class="mb-5 p-4 bg-blue-50 border border-blue-200 rounded-xl shadow-sm mt-3">
                         <h4 class="text-[13px] font-black text-blue-700 mb-2"><i class="fa-solid fa-share-nodes mr-1"></i> สำหรับโรงเรียนอื่นที่อยากนำระบบไปใช้</h4>
-                        <button type="button" onclick="document.getElementById('guide-modal').classList.add('active')" class="w-full bg-white text-blue-600 font-bold px-4 py-2.5 shape-btn text-[13px] border border-blue-300 shadow-sm btn-press"><i class="fa-solid fa-book-open mr-1"></i> วิธีสร้างฐานข้อมูล (คัดลอกง่ายในคลิกเดียว)</button>
+                        <button type="button" onclick="document.getElementById('guide-modal').classList.add('active')" class="w-full bg-white text-blue-600 font-bold px-4 py-2.5 shape-btn text-[13px] border border-blue-300 shadow-sm btn-press"><i class="fa-solid fa-book-open mr-1"></i> ดูวิธีสร้างฐานข้อมูล (ทำง่ายใน 3 ขั้นตอน)</button>
                     </div>
 
                     <div class="border-t border-slate-300/30 pt-5">
