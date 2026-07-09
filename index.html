@@ -128,10 +128,8 @@
         <div id="custom-bg-overlay" class="custom-bg-overlay hidden"></div>
     </div>
 
-    <!-- UI Elements -->
     <div id="toast"><span id="toast-icon"></span><span id="toast-message" class="text-shadow-none"></span></div>
 
-    <!-- Confirm Modal -->
     <div id="confirm-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center">
             <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4 bg-red-100 text-red-500 shadow-inner text-shadow-none"><i class="fa-solid fa-triangle-exclamation"></i></div>
@@ -144,7 +142,6 @@
         </div>
     </div>
 
-    <!-- PIN Modal -->
     <div id="pin-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center">
             <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4 bg-blue-100 text-blue-600 shadow-inner text-shadow-none"><i class="fa-solid fa-lock"></i></div>
@@ -158,7 +155,6 @@
         </div>
     </div>
 
-    <!-- Manage Status Modal -->
     <div id="status-manage-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center relative !p-6 !max-w-sm">
             <button onclick="this.closest('.modal-bg').classList.remove('active')" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 rounded-full text-slate-500 font-black"><i class="fa-solid fa-xmark"></i></button>
@@ -183,7 +179,6 @@
         </div>
     </div>
 
-    <!-- Guide Modal สำหรับโรงเรียนอื่นนำไปใช้ -->
     <div id="guide-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center relative w-full max-w-md p-6">
             <button onclick="this.closest('.modal-bg').classList.remove('active')" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 rounded-full text-slate-500 font-black"><i class="fa-solid fa-xmark"></i></button>
@@ -223,7 +218,6 @@
         </div>
     </div>
 
-    <!-- Multi-Select Student Modal -->
     <div id="student-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
             <button onclick="closeStudentModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 btn-press"><i class="fa-solid fa-arrow-left"></i></button>
@@ -248,7 +242,6 @@
         <div class="flex-1 overflow-y-auto scroll-fine p-2 space-y-1 bg-slate-50" id="modal-student-list"></div>
     </div>
 
-    <!-- Multi-Select Offense Modal -->
     <div id="offense-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
             <button onclick="closeOffenseModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 btn-press"><i class="fa-solid fa-arrow-left"></i></button>
@@ -260,7 +253,6 @@
 
     <main class="container mx-auto max-w-md px-6 pt-10 pb-12 flex-1 w-full flex flex-col h-full overflow-hidden text-left relative z-10">
         
-        <!-- ================= VIEW 0: SPLASH ================= -->
         <section id="view-splash" class="flex flex-col items-center justify-center flex-1 min-h-[70vh] w-full select-none">
             <div class="w-32 h-32 bg-white/20 rounded-full shadow-2xl flex items-center justify-center mb-6 logo-pulse p-3 border border-white/40 backdrop-blur-md app-logo-container"></div>
             <h1 class="text-[34px] font-black text-accent leading-none tracking-tight glow-text text-center w-full">ระบบคะแนน</h1>
@@ -271,7 +263,6 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 1: HOME (Premium Dashboard) ================= -->
         <section id="view-home" class="hidden flex flex-col items-center justify-center flex-1 w-full px-1">
             <header class="text-center mb-8 w-full flex flex-col items-center mt-2">
                 <div class="w-28 h-28 bg-white/30 rounded-[2rem] shadow-2xl flex items-center justify-center mb-5 relative overflow-hidden group app-logo-container p-2 border border-white/50 backdrop-blur-md logo-pulse"></div>
@@ -280,26 +271,22 @@
             </header>
 
             <div class="w-full flex flex-col gap-3">
-                <!-- Record Button (Primary) -->
                 <button onclick="openFormWithPin('form')" class="glass-panel shape-card relative overflow-hidden p-5 flex items-center gap-4 text-left btn-press group border-l-[6px] border-l-emerald-500 shadow-lg">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center text-2xl shadow-md shrink-0"><i class="fa-solid fa-user-shield"></i></div>
                     <div class="flex-1">
-                        <h3 class="text-[18px] font-black text-accent tracking-wide">บันทึกการหักคะแนน</h3>
-                        <p class="text-[12px] text-slate-500 font-bold mt-0.5">ครูผู้สอน/ประจำชั้น (ต้องใช้ PIN)</p>
+                        <h3 class="text-[18px] font-black text-accent tracking-wide">จัดการคะแนนนักเรียน</h3>
+                        <p class="text-[12px] text-slate-500 font-bold mt-0.5">หัก/เพิ่มคะแนน (ต้องใช้ PIN)</p>
                     </div>
                     <div class="w-8 h-8 rounded-full bg-slate-100/50 flex items-center justify-center text-slate-400"><i class="fa-solid fa-chevron-right"></i></div>
                 </button>
 
-                <!-- Dashboard / Leaderboard Grid -->
                 <div class="grid grid-cols-2 gap-3 w-full">
-                    <!-- Check Score -->
                     <button onclick="switchView('view-dashboard')" class="glass-panel shape-card p-5 flex flex-col items-center text-center btn-press group border-t-[4px] border-t-blue-500 shadow-md">
                         <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-3 shadow-inner"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                         <h3 class="text-[14px] font-black text-accent tracking-wide">ตรวจสอบคะแนน</h3>
                         <p class="text-[10px] text-slate-500 font-bold mt-1">รายชื่อและสลิป</p>
                     </button>
 
-                    <!-- Leaderboard -->
                     <button onclick="openStatsView()" class="glass-panel shape-card p-5 flex flex-col items-center text-center btn-press group border-t-[4px] border-t-purple-500 shadow-md">
                         <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl mb-3 shadow-inner"><i class="fa-solid fa-ranking-star"></i></div>
                         <h3 class="text-[14px] font-black text-accent tracking-wide">ผู้นำ & สถิติ</h3>
@@ -308,11 +295,9 @@
                 </div>
                 
                 <div class="grid grid-cols-2 gap-3 w-full mt-1">
-                    <!-- Settings -->
                     <button onclick="openSettingsView()" class="glass-panel shape-btn p-4 flex items-center justify-center gap-2 btn-press group shadow-sm border border-white/40">
                         <i class="fa-solid fa-gear text-slate-500"></i> <span class="text-[13px] font-black text-slate-700">ตั้งค่าระบบ</span>
                     </button>
-                    <!-- Guide -->
                     <button onclick="switchView('view-guide')" class="glass-panel shape-btn p-4 flex items-center justify-center gap-2 btn-press group shadow-sm border border-white/40">
                         <i class="fa-solid fa-book-open-reader text-slate-500"></i> <span class="text-[13px] font-black text-slate-700">เรียนรู้วิธีใช้</span>
                     </button>
@@ -325,7 +310,6 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 2: GUIDE ================= -->
         <section id="view-guide" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -348,7 +332,6 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 3: DASHBOARD (STUDENT) ================= -->
         <section id="view-dashboard" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -367,7 +350,6 @@
             <div class="overflow-y-auto scroll-fine flex-1 space-y-4 px-1 pb-10" id="dashboard-container"></div>
         </section>
 
-        <!-- ================= VIEW 3.5: LEADERBOARD & STATS ================= -->
         <section id="view-stats" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -398,11 +380,10 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 4: BATCH RECORD FORM (TEACHER) ================= -->
         <section id="view-form" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-4 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
-                <h2 class="text-[30px] font-black text-accent tracking-tighter leading-none glow-text flex-1">หัก/เพิ่มคะแนน</h2>
+                <h2 class="text-[30px] font-black text-accent tracking-tighter leading-none glow-text flex-1">จัดการคะแนนนักเรียน</h2>
             </div>
             
             <div class="overflow-y-auto scroll-fine flex-1 px-1">
@@ -417,6 +398,13 @@
                             <label class="text-[12px] font-black uppercase text-slate-700 tracking-widest glow-text">นักเรียน <span class="text-blue-500">*</span></label>
                             <span class="text-[10px] font-bold bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full" id="st-count-badge">0 คน</span>
                         </div>
+                        
+                        <div class="mb-3">
+                            <select id="form-room-filter" class="w-full bg-slate-50 border border-blue-200 rounded-xl px-3 py-3 text-[14px] font-black text-blue-700 outline-none focus:border-blue-500 shadow-sm" onchange="document.getElementById('filter-room-modal').value = this.value;">
+                                <option value="all">เลือกจากทุกห้องเรียน</option>
+                            </select>
+                        </div>
+
                         <div id="selected-students-container" class="flex flex-wrap gap-2 mb-3 min-h-[40px] p-2 bg-white/30 rounded-xl border border-white/50 shadow-inner empty:hidden"></div>
                         <button type="button" onclick="openStudentModal()" class="w-full bg-white border-2 border-dashed border-blue-300 text-blue-600 font-black py-3 rounded-xl text-[14px] flex items-center justify-center gap-2 hover:bg-blue-50 transition btn-press"><i class="fa-solid fa-user-plus"></i> เลือกรายชื่อนักเรียน</button>
                     </div>
@@ -450,7 +438,6 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 5: SLIP EXPORT ================= -->
         <section id="view-slip" class="hidden flex-col h-full overflow-hidden">
             <div class="flex items-center justify-between mb-4 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-dashboard')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -497,7 +484,6 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 6: SETTINGS ================= -->
         <section id="view-settings" class="hidden flex-1 flex flex-col h-full">
             <div class="flex items-center justify-between mb-6 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="cancelSettingsAndGoBack()"><i class="fa-solid fa-arrow-left text-xl"></i></button>
@@ -680,10 +666,19 @@
             let opsAll = '<option value="all">รวมทั้งโรงเรียน</option>';
             let opsDash = '<option value="all">ทุกห้องเรียน</option>';
             let opsMod = '<option value="all">ทุกห้อง</option>';
-            cachedRooms.forEach(r => { opsAll+=`<option value="${r}">${r}</option>`; opsDash+=`<option value="${r}">${r}</option>`; opsMod+=`<option value="${r}">${r}</option>`; });
+            let opsForm = '<option value="all">เลือกจากทุกห้องเรียน</option>';
+            cachedRooms.forEach(r => { 
+                opsAll+=`<option value="${r}">${r}</option>`; 
+                opsDash+=`<option value="${r}">${r}</option>`; 
+                opsMod+=`<option value="${r}">${r}</option>`; 
+                opsForm+=`<option value="${r}">เฉพาะห้อง ${r}</option>`;
+            });
             document.getElementById('stat-room-filter').innerHTML = opsAll;
             document.getElementById('filter-room-dashboard').innerHTML = opsDash;
             document.getElementById('filter-room-modal').innerHTML = opsMod;
+            
+            const formRoomEl = document.getElementById('form-room-filter');
+            if (formRoomEl) formRoomEl.innerHTML = opsForm;
         }
 
         function getSuspensionBadge(count) {
@@ -697,6 +692,7 @@
             const container = document.getElementById('dashboard-container'); container.innerHTML = '';
             if(students.length === 0) { container.innerHTML = '<div class="w-full text-center py-10 glass-panel shape-card text-slate-500 font-bold">ไม่มีข้อมูล</div>'; return; }
 
+            let htmlStr = '';
             students.forEach((student, index) => {
                 let borderColor = student.score <= 0 ? 'border-l-red-500' : (student.score <= 30 ? 'border-l-amber-500' : 'border-l-emerald-500');
                 let statusClass = student.score <= 0 ? 'bg-red-100 text-red-700' : (student.score <= 30 ? 'bg-amber-100 text-amber-700' : 'bg-emerald-100 text-emerald-700');
@@ -734,7 +730,7 @@
 
                 let suspBadge = getSuspensionBadge(student.suspensionCount);
 
-                container.innerHTML += `
+                htmlStr += `
                     <div class="student-card-item glass-panel shape-card p-5 shadow-sm border-l-[5px] ${borderColor} fade-in cursor-pointer overflow-hidden transition-all duration-300" data-name="${student.name.toLowerCase()}" data-room="${student.room}" onclick="this.classList.toggle('expanded')">
                         <div class="flex justify-between items-center">
                             <div class="flex-1 pr-3"><h3 class="text-[17px] font-black text-accent leading-tight">${student.name}</h3><div class="mt-1"><span class="text-[10px] font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-md shadow-sm"><i class="fa-solid fa-users text-blue-400"></i> ${student.room}</span></div></div>
@@ -748,6 +744,7 @@
                         <div class="history-content">${historyHtml}</div>
                     </div>`;
             });
+            container.innerHTML = htmlStr;
         }
 
         function filterDashboard() {
@@ -821,12 +818,14 @@
                 return;
             }
 
+            let worstHtml = '';
             studentsToWatch.slice(0, 10).forEach((st, index) => {
                 let rankStyle = index === 0 ? 'bg-gradient-to-r from-red-50 to-red-100 border-red-200' : (index === 1 ? 'bg-gradient-to-r from-orange-50 to-orange-100 border-orange-200' : 'bg-white border-slate-100');
                 let rankIcon = index === 0 ? `<i class="fa-solid fa-circle-exclamation text-xl text-red-500"></i>` : `<span class="text-sm font-black text-slate-400">${index+1}</span>`;
                 let scoreColor = st.score <= 0 ? 'text-red-600' : (st.score <= 30 ? 'text-amber-600' : 'text-emerald-600');
-                worstContainer.innerHTML += `<div class="flex items-center justify-between p-3 border rounded-xl mb-2 shadow-sm ${rankStyle}"><div class="flex items-center gap-3"><div class="w-6 text-center">${rankIcon}</div><div class="text-[13px] font-black text-slate-700">${st.name} <span class="text-[9px] text-slate-400 ml-1 bg-white px-1 py-0.5 rounded">(${st.room})</span></div></div><div class="font-black text-[15px] bg-white/70 px-2 py-1 rounded-lg ${scoreColor}">${st.score}</div></div>`;
+                worstHtml += `<div class="flex items-center justify-between p-3 border rounded-xl mb-2 shadow-sm ${rankStyle}"><div class="flex items-center gap-3"><div class="w-6 text-center">${rankIcon}</div><div class="text-[13px] font-black text-slate-700">${st.name} <span class="text-[9px] text-slate-400 ml-1 bg-white px-1 py-0.5 rounded">(${st.room})</span></div></div><div class="font-black text-[15px] bg-white/70 px-2 py-1 rounded-lg ${scoreColor}">${st.score}</div></div>`;
             });
+            worstContainer.innerHTML = worstHtml;
         }
 
         function renderStatsChart() {
@@ -835,10 +834,13 @@
             const container = document.getElementById('stat-chart-list'); container.innerHTML = '';
             const sortedOffenses = Object.entries(counts).sort((a,b) => b[1] - a[1]);
             if(sortedOffenses.length === 0) { container.innerHTML = `<div class="text-center py-8 text-slate-400 font-bold text-[13px]">ยังไม่มีประวัติการหักคะแนน</div>`; return; }
+            
+            let chartHtml = '';
             sortedOffenses.forEach(item => {
                 const pct = (item[1] / maxCount) * 100;
-                container.innerHTML += `<div class="mb-4"><div class="flex justify-between items-end mb-1.5"><span class="text-[13px] font-black text-slate-700">${item[0]}</span><span class="text-[11px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-md">${item[1]} ครั้ง</span></div><div class="w-full bg-slate-200/50 rounded-full h-3.5 shadow-inner overflow-hidden border border-slate-200"><div class="bg-gradient-to-r from-red-400 to-rose-500 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-width="${pct}%"></div></div></div>`;
+                chartHtml += `<div class="mb-4"><div class="flex justify-between items-end mb-1.5"><span class="text-[13px] font-black text-slate-700">${item[0]}</span><span class="text-[11px] font-bold bg-rose-100 text-rose-600 px-2 py-0.5 rounded-md">${item[1]} ครั้ง</span></div><div class="w-full bg-slate-200/50 rounded-full h-3.5 shadow-inner overflow-hidden border border-slate-200"><div class="bg-gradient-to-r from-red-400 to-rose-500 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%" data-width="${pct}%"></div></div></div>`;
             });
+            container.innerHTML = chartHtml;
             setTimeout(() => { container.querySelectorAll('[data-width]').forEach(el => { el.style.width = el.getAttribute('data-width'); }); }, 100);
         }
 
@@ -849,12 +851,18 @@
         }
 
         function openStudentModal() {
-            const list = document.getElementById('modal-student-list'); list.innerHTML = '';
+            // ดึงค่าการกรองห้องจากหน้าฟอร์ม ไปตั้งค่าให้ Dropdown ใน Modal ให้ตรงกัน
+            const formRoomVal = document.getElementById('form-room-filter').value;
+            document.getElementById('filter-room-modal').value = formRoomVal;
+
+            const list = document.getElementById('modal-student-list');
+            let htmlStr = '';
             cachedStudents.forEach(s => {
                 const checked = selectedStudentsList.includes(s.name) ? 'checked' : '';
                 const safeRoom = s.room || "ไม่ระบุ";
-                list.innerHTML += `<label class="student-modal-item flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100 mb-2 cursor-pointer" data-name="${s.name.toLowerCase()}" data-room="${safeRoom}"><div><p class="font-black text-accent text-[15px]">${s.name}</p><p class="text-[11px] font-bold mt-0.5"><span class="text-blue-500 bg-blue-50 px-1.5 py-0.5 rounded mr-1 border border-blue-100">${safeRoom}</span> <span class="text-slate-400">คงเหลือ: ${s.score}</span></p></div><div class="checkbox-container relative"><input type="checkbox" class="absolute opacity-0 w-0 h-0 st-checkbox" value="${s.name}" ${checked} onchange="updateStudentCount()"><div class="custom-checkbox"></div></div></label>`;
+                htmlStr += `<label class="student-modal-item flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100 mb-2 cursor-pointer" data-name="${s.name.toLowerCase()}" data-room="${safeRoom}"><div><p class="font-black text-accent text-[15px]">${s.name}</p><p class="text-[11px] font-bold mt-0.5"><span class="text-blue-500 bg-blue-50 px-1.5 py-0.5 rounded mr-1 border border-blue-100">${safeRoom}</span> <span class="text-slate-400">คงเหลือ: ${s.score}</span></p></div><div class="checkbox-container relative"><input type="checkbox" class="absolute opacity-0 w-0 h-0 st-checkbox" value="${s.name}" ${checked} onchange="updateStudentCount()"><div class="custom-checkbox"></div></div></label>`;
             });
+            list.innerHTML = htmlStr;
             filterStudentModal(); 
             document.getElementById('student-select-modal').classList.add('active');
         }
