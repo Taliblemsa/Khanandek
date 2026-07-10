@@ -273,80 +273,56 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 2: GUIDE ================= -->
+        <!-- ================= VIEW 2: GUIDE (ข้อมูลระบบและวิธีใช้) ================= -->
         <section id="view-guide" class="hidden flex flex-col flex-1 h-full w-full">
             <div class="flex items-center justify-between mb-5 shrink-0 px-1">
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
-                <h2 class="text-[30px] font-black text-accent tracking-tighter leading-none glow-text">เรียนรู้วิธีใช้</h2>
+                <h2 class="text-[30px] font-black text-accent tracking-tighter leading-none glow-text flex-1">ข้อมูลระบบ</h2>
             </div>
+            
             <div class="overflow-y-auto scroll-fine flex-1 space-y-4 px-1 pb-10">
-                <div class="glass-panel shape-card p-6 border-t-[5px] border-t-blue-500 text-center relative overflow-hidden">
-                    <h3 class="text-[12px] font-black text-blue-600 uppercase tracking-widest mb-4 glow-text"><i class="fa-solid fa-heart mr-1"></i> เจตนารมณ์ผู้สร้าง</h3>
-                    <p class="font-arabic text-[32px] font-bold text-accent leading-loose mt-2 mb-1" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
-                    <p class="text-[14px] font-black text-slate-700 leading-relaxed bg-white/50 px-3 py-2 rounded-xl shadow-inner border border-white/50 inline-block mb-4">"คนที่ดีที่สุด คือคนที่สร้างประโยชน์ให้แก่เพื่อนมนุษย์ได้มากที่สุด"</p>
-                </div>
                 
                 <div class="glass-panel shape-card p-6">
-                    <h3 class="text-[13px] font-black text-primary uppercase tracking-widest mb-4 glow-text"><i class="fa-solid fa-chalkboard-user mr-1"></i> วิธีการใช้งานสำหรับครู</h3>
-                    <ul class="space-y-3 text-[13px] text-slate-700 font-bold leading-relaxed">
-                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">1</div>การหักคะแนนจะถูกล็อกด้วยรหัสผ่านส่วนตัว (PIN) รหัสจะถูกจำไว้ 12 ชั่วโมง</li>
-                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">2</div>ระบบบังคับเลือกห้องเรียนก่อน เพื่อให้การค้นหารายชื่อในขั้นตอนต่อไปรวดเร็วขึ้น</li>
-                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">3</div>เลือกเด็กและฐานความผิดได้หลายรายการพร้อมกัน และปรับแก้คะแนนได้อิสระ</li>
-                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">4</div>หลังจากอัปเดตคะแนน ระบบจะดึงข้อมูลใหม่เบื้องหลัง และยังคงอยู่หน้าเดิมของห้องนั้นๆ เพื่อให้ทำรายการเคสต่อไปได้ทันที</li>
+                    <h3 class="text-[16px] font-black text-blue-600 mb-2 glow-text">📝 ระบบบันทึกคะแนนความประพฤตินักเรียน</h3>
+                    <p class="text-[13px] text-slate-700 font-medium leading-relaxed mb-2">แอปพลิเคชันบนเว็บ (Web Application) สำหรับจัดการและบันทึกคะแนนความประพฤติของนักเรียน ออกแบบมาเพื่อช่วยอำนวยความสะดวกให้คณะครูประจำชั้นและครูผู้สอนในการตัด/เพิ่มคะแนนอย่างเป็นระบบ รวดเร็ว และประเมินผลได้ทันที</p>
+                    <p class="text-[13px] text-slate-700 font-medium leading-relaxed">พัฒนาในรูปแบบ PWA (Progressive Web App) สามารถกดติดตั้งลงบนหน้าจอโฮมของสมาร์ทโฟนได้ทั้ง iOS และ Android โดยใช้ Google Sheets เป็นฐานข้อมูลหลัก ซึ่งฟรี 100% และไม่ต้องตั้งค่าเซิร์ฟเวอร์ให้ยุ่งยาก</p>
+                </div>
+
+                <div class="glass-panel shape-card p-6 border-l-[4px] border-l-amber-500">
+                    <h3 class="text-[14px] font-black text-amber-600 uppercase tracking-widest mb-3 glow-text"><i class="fa-solid fa-star mr-1"></i> คุณสมบัติเด่น (Features)</h3>
+                    <ul class="space-y-2 text-[12px] text-slate-700 font-medium leading-relaxed">
+                        <li><b>📱 PWA Ready:</b> ติดตั้งเป็นแอปบนมือถือ ใช้งานได้ลื่นไหลเหมือน Native App</li>
+                        <li><b>⚡ Fast & Offline-Ready UX:</b> โหลดรายชื่อนักเรียนเพียงครั้งเดียว ใช้งานได้ต่อเนื่อง</li>
+                        <li><b>👥 Batch Processing:</b> หักคะแนนโหมดรวดเร็ว เลือกเด็กและข้อหาได้หลายรายการพร้อมกัน</li>
+                        <li><b>📊 Smart Dashboard:</b> สรุปสถิติ จัดอันดับเฝ้าระวัง และกราฟความถี่</li>
+                        <li><b>🖨️ Export Slip:</b> สร้าง "สลิปรายงานความประพฤติ" แบบพรีเมียม พร้อม QR Code</li>
+                        <li><b>🎨 Customizable:</b> เปลี่ยนโลโก้ ภาพพื้นหลัง และธีมสีได้อิสระ</li>
+                        <li><b>🛡️ Role Management:</b> ล็อกรหัสผ่าน PIN และระบบจัดการสถานะโดยครูประจำชั้น</li>
                     </ul>
                 </div>
 
-                <div class="glass-panel shape-card p-6">
-                    <h3 class="text-[13px] font-black text-red-600 uppercase tracking-widest mb-4 glow-text"><i class="fa-solid fa-triangle-exclamation mr-1"></i> มาตรการควบคุม</h3>
-                    <div class="space-y-2 mb-5">
-                        <div class="bg-emerald-50/80 p-3 rounded-xl shadow-sm text-[12px] border border-emerald-200/50"><span class="font-black text-emerald-600 text-sm mr-1">มากกว่า 30 :</span> ปกติ / ปลอดภัย</div>
-                        <div class="bg-amber-50/80 p-3 rounded-xl shadow-sm text-[12px] border border-amber-200/50"><span class="font-black text-amber-600 text-sm mr-1">≤ 30 คะแนน :</span> เตือน/โทรแจ้งผู้ปกครอง</div>
-                        <div class="bg-red-50/80 p-3 rounded-xl shadow-sm text-[12px] border border-red-200/50"><span class="font-black text-red-600 text-sm mr-1">≤ 0 คะแนน :</span> เชิญผู้ปกครอง / พักการเรียน</div>
-                    </div>
-                    
-                    <h3 class="text-[12px] font-black text-slate-500 uppercase tracking-widest mb-3 mt-5">บัญชีเกณฑ์มาตรฐานเบื้องต้น</h3>
-                    <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-white/60">
-                        <table class="w-full text-left text-[13px] border-collapse" id="criteriaTable">
-                            <thead class="bg-slate-800 text-white"><tr><th class="p-3 font-bold">รายการ / ฐานความผิด</th><th class="p-3 font-bold text-center w-20">คะแนน</th></tr></thead>
-                            <tbody class="divide-y divide-slate-200/50 text-slate-700 font-bold"></tbody>
-                        </table>
-                    </div>
+                <div class="glass-panel shape-card p-6 border-l-[4px] border-l-emerald-500">
+                    <h3 class="text-[14px] font-black text-emerald-600 uppercase tracking-widest mb-3 glow-text"><i class="fa-solid fa-code mr-1"></i> เทคโนโลยีที่ใช้</h3>
+                    <ul class="space-y-1.5 text-[12px] text-slate-700 font-medium">
+                        <li><b>Frontend:</b> HTML5, CSS3, JavaScript (Vanilla)</li>
+                        <li><b>Styling:</b> Tailwind CSS</li>
+                        <li><b>Icons & Fonts:</b> FontAwesome 6, Sarabun, Amiri</li>
+                        <li><b>Backend/DB:</b> Google Apps Script (GAS) & Google Sheets</li>
+                    </ul>
                 </div>
 
-                <!-- วิธีนำระบบไปใช้สำหรับโรงเรียนอื่น -->
-                <div class="glass-panel shape-card p-6 border-t-[5px] border-t-emerald-500">
-                    <h3 class="text-[14px] font-black text-emerald-600 mb-3 glow-text"><i class="fa-solid fa-share-nodes mr-1"></i> การนำระบบไปใช้กับโรงเรียนอื่น</h3>
-                    <p class="text-[12px] font-bold text-slate-600 mb-4 leading-relaxed">แอปพลิเคชันนี้ใช้งานฟรี 100% โดยใช้ Google Sheets เป็นฐานข้อมูล ท่านสามารถสร้างฐานข้อมูลของท่านเองได้ใน 3 ขั้นตอน:</p>
-                    
-                    <div class="space-y-4">
-                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
-                            <span class="text-blue-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-1"></i> คัดลอกแม่แบบ & เปลี่ยนรายชื่อ</span>
-                            <p class="mb-2 font-medium text-[11px] leading-relaxed text-slate-700">ลบชื่อนักเรียนโรงเรียนเดิมออก และพิมพ์ข้อมูลนักเรียนของท่านใหม่ดังนี้:</p>
-                            <ul class="list-disc ml-4 mb-3 space-y-1 text-slate-600 font-black text-[11px]">
-                                <li><b>A (Name):</b> พิมพ์ ชื่อ-สกุล</li>
-                                <li><b>B (Room):</b> พิมพ์ ชั้น/ห้อง (จัดรูปแบบคอลัมน์เป็น <u>ข้อความธรรมดา</u> ก่อนพิมพ์ เช่น 1/1)</li>
-                                <li><b>C (Score):</b> ใส่คะแนนเริ่มต้น 100 ทุกคน</li>
-                                <li><b>D, E, F:</b> ปล่อยทิ้งว่างไว้ (ระบบจะจัดการเอง)</li>
-                            </ul>
-                            <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="w-full bg-blue-600 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition font-black text-[12px]"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบ</a>
-                        </div>
-                        
-                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-sm">
-                            <span class="text-amber-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-2"></i> เปิดใช้งานระบบ API (Deploy)</span>
-                            <ul class="list-decimal ml-4 space-y-1.5 text-slate-700 font-bold text-[11px] leading-relaxed">
-                                <li>คลิกเมนู <b>ส่วนขยาย (Extensions)</b> > <b>Apps Script</b></li>
-                                <li>กดปุ่มสีน้ำเงิน <b>การทำให้ใช้งานได้ (Deploy)</b> > <b>การทำให้ใช้งานได้รายการใหม่</b></li>
-                                <li>คลิกฟันเฟือง ⚙️ ทางซ้าย เลือก <b>เว็บแอป (Web app)</b></li>
-                                <li>สิทธิ์การเข้าถึง (Who has access) <u class="text-red-500 font-black">ต้องเปลี่ยนเป็น "ทุกคน (Anyone)"</u></li>
-                                <li>กด <b>Deploy</b> (กดยืนยันสิทธิ์อีเมลให้เรียบร้อย)</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 shadow-sm">
-                            <span class="text-emerald-700 font-black text-[13px] mb-1 block"><i class="fa-solid fa-3"></i> เชื่อมต่อแอปพลิเคชัน</span>
-                            <p class="font-medium text-[11px] leading-relaxed text-slate-700">คัดลอก <b>"URL เว็บแอป"</b> (ที่ลงท้ายด้วย <i>/exec</i>) จากขั้นตอนที่แล้ว กลับมาวางในช่อง <u>ลิงก์ฐานข้อมูล</u> ที่หน้า <b>ตั้งค่าระบบ</b> ของแอปพลิเคชันนี้ แล้วกดบันทึก เป็นอันเสร็จสิ้น!</p>
-                        </div>
-                    </div>
+                <div class="glass-panel shape-card p-6 border-t-[5px] border-t-blue-500 text-center relative overflow-hidden">
+                    <i class="fa-solid fa-quote-right absolute -right-4 -top-2 text-6xl text-white/20"></i>
+                    <h3 class="text-[12px] font-black text-blue-600 uppercase tracking-widest mb-4 glow-text"><i class="fa-solid fa-heart mr-1"></i> เจตนารมณ์ผู้สร้าง</h3>
+                    <p class="font-arabic text-[32px] font-bold text-accent leading-loose mt-2 mb-1" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
+                    <p class="text-[14px] font-black text-slate-700 leading-relaxed bg-white/50 px-3 py-2 rounded-xl shadow-inner border border-white/50 inline-block mb-4">"คนที่ดีที่สุด คือคนที่สร้างประโยชน์ให้แก่เพื่อนมนุษย์ได้มากที่สุด"</p>
+                    <p class="text-[12px] text-slate-600 font-medium leading-relaxed text-left bg-slate-50/50 p-3 rounded-xl border border-slate-200/50">แอปพลิเคชันนี้ถูกสร้างขึ้นเพื่อเป็นเครื่องมือช่วยอำนวยความสะดวกให้คณะครู ในการจัดการพฤติกรรมนักเรียนอย่างเป็นระบบ รวดเร็ว และเป็นธรรม เพื่อเป็นส่วนหนึ่งในการขัดเกลาเยาวชนให้เติบโตเป็นคนดีของสังคมต่อไป</p>
+                </div>
+
+                <div class="glass-panel shape-card p-6 bg-gradient-to-br from-slate-800 to-accent text-white">
+                    <h3 class="text-[14px] font-black text-amber-400 uppercase tracking-widest mb-2"><i class="fa-solid fa-code-branch mr-1"></i> เครดิตผู้พัฒนา</h3>
+                    <p class="text-[13px] font-medium leading-relaxed opacity-90 mb-3">พัฒนาและออกแบบโดย: <b class="text-white font-black text-[14px]">ครูอาณัติ เหล็มสะ</b></p>
+                    <p class="text-[11px] font-light opacity-70 leading-relaxed">หากระบบนี้เป็นประโยชน์ต่อโรงเรียนหรือองค์กรของคุณ สามารถนำไปใช้งาน พัฒนาต่อยอด หรือแชร์ต่อเพื่อเป็นวิทยาทานได้เลยครับ ยินดีเป็นอย่างยิ่งครับ 😊</p>
                 </div>
 
             </div>
@@ -522,16 +498,31 @@
             
             <div class="overflow-y-auto scroll-fine px-1 pb-6 flex-1 space-y-4">
                 <div class="glass-panel shape-card p-6">
-                    <h3 class="text-[13px] font-black text-primary uppercase tracking-widest mb-4 flex items-center gap-2 text-shadow-none"><i class="fa-solid fa-star"></i> ระบบคะแนนความประพฤติ</h3>
+                    <h3 class="text-[13px] font-black text-primary uppercase tracking-widest mb-4 flex items-center gap-2 text-shadow-none"><i class="fa-solid fa-star"></i> ข้อมูลแอปพลิเคชัน</h3>
                     <label class="text-[12px] font-bold text-slate-700 glow-text mb-2 block">ชื่อโรงเรียน หรือ ชื่อระบบ</label>
                     <input type="text" id="set-school-name" class="input-field shape-input mb-5">
                     
                     <label class="text-[12px] font-bold text-slate-700 glow-text mb-2 block border-t border-slate-300/30 pt-4">ลิงก์ฐานข้อมูล (Google Apps Script URL)</label>
-                    <input type="text" id="set-gas-url" class="input-field shape-input mb-2" placeholder="วางลิงก์ Web App (Exec)...">
+                    <input type="text" id="set-gas-url" class="input-field shape-input mb-4" placeholder="วางลิงก์ Web App (Exec)...">
                     
-                    <div class="mb-5 p-4 bg-blue-50 border border-blue-200 rounded-xl shadow-sm mt-3">
-                        <h4 class="text-[13px] font-black text-blue-700 mb-2"><i class="fa-solid fa-share-nodes mr-1"></i> สำหรับโรงเรียนอื่นที่อยากนำระบบไปใช้</h4>
-                        <button type="button" onclick="switchView('view-guide')" class="w-full bg-white text-blue-600 font-bold px-4 py-2.5 shape-btn text-[13px] border border-blue-300 shadow-sm btn-press"><i class="fa-solid fa-book-open mr-1"></i> ดูวิธีสร้างฐานข้อมูล (ทำง่ายใน 3 ขั้นตอน)</button>
+                    <!-- วิธีสร้างฐานข้อมูลแบบเปิดเผยเต็มๆ ในหน้าตั้งค่า -->
+                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm mt-2 mb-4">
+                        <h4 class="text-[13px] font-black text-blue-700 mb-3"><i class="fa-solid fa-share-nodes mr-1"></i> วิธีสร้างฐานข้อมูล (สำหรับโรงเรียนอื่น)</h4>
+                        <div class="text-[11px] text-slate-700 space-y-3 font-medium leading-relaxed">
+                            <div>
+                                <b class="text-blue-800">1. ทำสำเนาแม่แบบฐานข้อมูล</b><br>
+                                ลบรายชื่อเดิมออก ใส่ข้อมูล: A (ชื่อสกุล), B (ชั้นเรียน เช่น 1/1), C (คะแนนตั้งต้น 100), ส่วน D-F ปล่อยว่าง<br>
+                                <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="text-blue-600 font-black underline mt-1 inline-block"><i class="fa-solid fa-copy"></i> คลิกลิงก์เพื่อทำสำเนาชีต</a>
+                            </div>
+                            <div>
+                                <b class="text-blue-800">2. เปิดใช้งาน API (Deploy)</b><br>
+                                ในชีตไปที่ <i>ส่วนขยาย > Apps Script</i> กด <i>การทำให้ใช้งานได้ > รายการใหม่</i> เลือก <i>เว็บแอป</i> ตั้งสิทธิ์เป็น <b class="text-red-600">"ทุกคน (Anyone)"</b> แล้วกด Deploy
+                            </div>
+                            <div>
+                                <b class="text-blue-800">3. เชื่อมต่อระบบ</b><br>
+                                คัดลอก URL เว็บแอป (ที่ลงท้ายด้วย /exec) มาวางในช่องด้านบน แล้วกดบันทึก
+                            </div>
+                        </div>
                     </div>
 
                     <div class="border-t border-slate-300/30 pt-5">
@@ -640,7 +631,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const uploadEl = document.getElementById('set-bg-upload'); if(uploadEl) uploadEl.addEventListener('change', handleImageUpload);
             const logoUploadEl = document.getElementById('set-logo-upload'); if(logoUploadEl) logoUploadEl.addEventListener('change', handleLogoUpload);
-            initCriteriaTable(); applyPrefs(); setupPWA();
+            applyPrefs(); setupPWA();
             if(CONFIG.GAS_URL) { fetchStudentData(); } 
             else { document.getElementById('splash-loading-text').innerText = "กรุณาตั้งค่าลิงก์ฐานข้อมูล..."; setTimeout(() => openSettingsView(), 1500); }
         });
@@ -708,17 +699,6 @@
                     document.getElementById('error-details').innerHTML = "เชื่อมต่อล้มเหลว หรือ ลิงก์ไม่ถูกต้อง<br><a href='javascript:void(0)' onclick='openSettingsView()' class='underline'>คลิกตั้งค่าฐานข้อมูลใหม่</a>";
                     switchView('view-home');
                 }
-            });
-        }
-
-        function initCriteriaTable() {
-            const tb = document.querySelector('#criteriaTable tbody');
-            if(!tb) return;
-            tb.innerHTML = '';
-            offenseList.forEach(item => {
-                let ptsText = item.points === 0 ? "ระบุเอง" : (item.points > 0 ? `+${item.points}` : item.points);
-                if (item.value === "ทำลายทรัพย์สินโรงเรียน") ptsText = "-20 ถึง -70";
-                tb.innerHTML += `<tr><td class="p-3 border-b border-slate-200/50">${item.text}</td><td class="p-3 text-center font-black ${item.points > 0 ? 'text-emerald-600' : 'text-red-500'} border-b border-slate-200/50">${ptsText}</td></tr>`;
             });
         }
 
@@ -966,10 +946,18 @@
         }
         
         function updateStudentCount() {
-            const cnt = document.querySelectorAll('.st-checkbox:checked').length; 
-            const visibleCnt = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox').length; 
-            const visibleCheckedCnt = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox:checked').length;
-            document.getElementById('student-select-count').innerText = `เลือกแล้ว ${cnt} คน`;
+            const allChecked = document.querySelectorAll('.st-checkbox:checked').length;
+            let visibleCnt = 0; let visibleCheckedCnt = 0;
+            
+            document.querySelectorAll('.student-modal-item').forEach(item => {
+                if (item.style.display !== 'none') {
+                    visibleCnt++;
+                    const cb = item.querySelector('.st-checkbox');
+                    if (cb && cb.checked) visibleCheckedCnt++;
+                }
+            });
+            
+            document.getElementById('student-select-count').innerText = `เลือกแล้ว ${allChecked} คน`;
             document.getElementById('btn-select-all-std').innerText = (visibleCnt > 0 && visibleCheckedCnt === visibleCnt) ? 'ยกเลิกทั้งหมด (ที่แสดง)' : 'เลือกทั้งหมด (ที่แสดง)';
         }
         
