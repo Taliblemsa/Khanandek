@@ -131,6 +131,19 @@
     <!-- UI Elements -->
     <div id="toast"><span id="toast-icon"></span><span id="toast-message" class="text-shadow-none"></span></div>
 
+    <!-- Confirm Modal -->
+    <div id="confirm-modal" class="modal-bg">
+        <div class="modal-box flex flex-col items-center justify-center">
+            <div class="w-16 h-16 rounded-full flex items-center justify-center text-3xl mb-4 bg-red-100 text-red-500 shadow-inner text-shadow-none"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3 class="text-2xl font-black text-accent mb-2 text-center w-full text-shadow-none" id="confirm-title">ยืนยัน</h3>
+            <p class="text-[14px] text-slate-600 font-bold mb-6 text-center w-full text-shadow-none" id="confirm-msg">แน่ใจหรือไม่?</p>
+            <div class="flex gap-3 w-full text-shadow-none">
+                <button id="btn-confirm-cancel" class="flex-1 btn-press bg-slate-200 text-slate-600 font-bold py-3.5 shape-btn">ยกเลิก</button>
+                <button id="btn-confirm-ok" class="flex-1 btn-press bg-red-500 text-white font-bold py-3.5 shape-btn shadow-lg shadow-red-500/30">ยืนยัน</button>
+            </div>
+        </div>
+    </div>
+
     <!-- PIN Modal -->
     <div id="pin-modal" class="modal-bg">
         <div class="modal-box flex flex-col items-center justify-center">
@@ -210,16 +223,17 @@
         </div>
     </div>
 
-    <!-- Multi-Select Student Modal -->
+    <!-- Multi-Select Student Modal (ไม่มีตัวกรองห้องแล้ว เพราะล็อกห้องมาจากหน้าฟอร์ม) -->
     <div id="student-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
             <button onclick="closeStudentModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 btn-press"><i class="fa-solid fa-arrow-left"></i></button>
-            <h3 class="text-lg font-black text-accent flex-1" id="student-modal-title">เลือกนักเรียน</h3>
+            <h3 class="text-lg font-black text-accent flex-1">เลือกนักเรียน</h3>
             <button onclick="confirmStudentSelection()" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-xl text-sm btn-press shadow-md">ยืนยัน</button>
         </div>
         <div class="p-4 bg-white border-b border-slate-100">
             <div class="relative w-full">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                <!-- ค้นหาด้วยชื่อ -->
                 <input type="text" id="modal-search-student" class="w-full bg-slate-100 border-none rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-[14px]" placeholder="ค้นหาชื่อ..." onkeyup="filterStudentModal()">
             </div>
             <div class="flex justify-between items-center mt-3 px-1">
@@ -253,7 +267,7 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 1: HOME ================= -->
+        <!-- ================= VIEW 1: HOME (Premium Dashboard) ================= -->
         <section id="view-home" class="hidden flex flex-col items-center justify-center flex-1 w-full px-1">
             <header class="text-center mb-8 w-full flex flex-col items-center mt-2">
                 <div class="w-28 h-28 bg-white/30 rounded-[2rem] shadow-2xl flex items-center justify-center mb-5 relative overflow-hidden group app-logo-container p-2 border border-white/50 backdrop-blur-md logo-pulse"></div>
@@ -262,6 +276,7 @@
             </header>
 
             <div class="w-full flex flex-col gap-3">
+                <!-- Record Button (Primary) กดปุ๊บเช็ครหัส แล้วไปหน้าเลือกห้อง -->
                 <button onclick="openFormWithPin('form-room')" class="glass-panel shape-card relative overflow-hidden p-5 flex items-center gap-4 text-left btn-press group border-l-[6px] border-l-emerald-500 shadow-lg">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center text-2xl shadow-md shrink-0"><i class="fa-solid fa-user-shield"></i></div>
                     <div class="flex-1">
@@ -271,6 +286,7 @@
                     <div class="w-8 h-8 rounded-full bg-slate-100/50 flex items-center justify-center text-slate-400"><i class="fa-solid fa-chevron-right"></i></div>
                 </button>
 
+                <!-- Dashboard / Leaderboard Grid -->
                 <div class="grid grid-cols-2 gap-3 w-full">
                     <button onclick="switchView('view-dashboard')" class="glass-panel shape-card p-5 flex flex-col items-center text-center btn-press group border-t-[4px] border-t-blue-500 shadow-md">
                         <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-3 shadow-inner"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
@@ -379,7 +395,7 @@
                 <button class="w-12 h-12 glass-panel shape-btn flex items-center justify-center text-slate-700 mr-4 btn-press shadow-sm text-shadow-none" onclick="switchView('view-home')"><i class="fa-solid fa-arrow-left text-xl"></i></button>
                 <h2 class="text-[30px] font-black text-accent tracking-tighter leading-none glow-text flex-1">เลือกห้องเรียน</h2>
             </div>
-            <p class="text-[13px] font-bold text-slate-600 mb-4 px-1 text-center bg-white/40 py-2.5 mx-1 rounded-xl shadow-inner border border-white/50"><i class="fa-solid fa-door-open text-blue-500 mr-1"></i> เลือกระดับชั้น/ห้องเรียน</p>
+            <p class="text-[13px] font-bold text-slate-600 mb-4 px-1 text-center bg-white/40 py-2.5 mx-1 rounded-xl shadow-inner border border-white/50"><i class="fa-solid fa-door-open text-blue-500 mr-1"></i> เลือกระดับชั้น/ห้องเรียน ที่ต้องการจัดการคะแนน</p>
             <div class="overflow-y-auto scroll-fine flex-1 px-1 pb-10">
                 <div class="grid grid-cols-2 gap-3" id="form-room-grid"></div>
             </div>
@@ -650,7 +666,6 @@
             } else { showToast("รหัสผ่านไม่ถูกต้อง!", "fa-solid fa-xmark text-red-400"); document.getElementById('teacher-pin-input').value = ""; }
         }
 
-        // Silent Fetch ใช้สำหรับโหลดข้อมูลอัปเดตแบบเบื้องหลัง (ไม่ต้องกลับไปหน้าโหลด)
         function fetchStudentData(silent = false) {
             const loadingText = document.getElementById('splash-loading-text');
             if (loadingText && !silent) loadingText.innerText = "กำลังดึงข้อมูลนักเรียน...";
@@ -688,8 +703,12 @@
             let opsAll = '<option value="all">รวมทั้งโรงเรียน</option>';
             let opsDash = '<option value="all">ทุกห้องเรียน</option>';
             cachedRooms.forEach(r => { opsAll+=`<option value="${r}">${r}</option>`; opsDash+=`<option value="${r}">${r}</option>`; });
-            document.getElementById('stat-room-filter').innerHTML = opsAll;
-            document.getElementById('filter-room-dashboard').innerHTML = opsDash;
+            
+            const statFilter = document.getElementById('stat-room-filter');
+            const dashFilter = document.getElementById('filter-room-dashboard');
+            
+            if(statFilter) statFilter.innerHTML = opsAll;
+            if(dashFilter) dashFilter.innerHTML = opsDash;
         }
 
         function getSuspensionBadge(count) {
@@ -701,6 +720,7 @@
 
         function renderDashboard(students) {
             const container = document.getElementById('dashboard-container'); 
+            if(!container) return;
             if(students.length === 0) { container.innerHTML = '<div class="w-full text-center py-10 glass-panel shape-card text-slate-500 font-bold">ไม่มีข้อมูล</div>'; return; }
 
             let htmlStr = '';
@@ -880,7 +900,6 @@
             const list = document.getElementById('modal-student-list');
             let htmlStr = '';
             
-            // กรองให้โชว์เฉพาะเด็กห้องที่เลือก
             const roomStudents = cachedStudents.filter(s => s.room === currentManageRoom);
             
             roomStudents.forEach(s => {
@@ -889,7 +908,10 @@
             });
             
             list.innerHTML = htmlStr;
-            document.getElementById('modal-search-student').value = ''; // เคลียร์ช่องค้นหาเมื่อเปิดใหม่
+            
+            const searchInput = document.getElementById('modal-search-student');
+            if(searchInput) searchInput.value = ''; 
+            
             filterStudentModal(); 
             document.getElementById('student-select-modal').classList.add('active');
         }
@@ -897,7 +919,10 @@
         function closeStudentModal() { document.getElementById('student-select-modal').classList.remove('active'); }
         
         function filterStudentModal() {
-            const q = document.getElementById('modal-search-student').value.toLowerCase();
+            const searchInput = document.getElementById('modal-search-student');
+            if(!searchInput) return;
+            const q = searchInput.value.toLowerCase();
+            
             document.querySelectorAll('.student-modal-item').forEach(item => { 
                 const matchName = item.dataset.name.includes(q); 
                 item.style.display = matchName ? 'flex' : 'none'; 
@@ -977,9 +1002,7 @@
                     btn.innerHTML = origHTML; btn.disabled = false; if(progContainer) progContainer.classList.add('hidden');
                     if(data.success) {
                         showToast(`บันทึกเรียบร้อย! ทำรายการต่อได้เลย`, 'fa-solid fa-check text-emerald-400');
-                        // เคลียร์ฟอร์มเตรียมพร้อมสำหรับคนต่อไปของห้องเดิม
                         selectedStudentsList = []; selectedOffensesList = []; renderSelectedStudents(); renderSelectedOffenses(); document.getElementById('notesInput').value = ""; 
-                        // อัปเดตข้อมูลนักเรียนเบื้องหลัง
                         fetchStudentData(true);
                     } else { showToast(`ข้อผิดพลาด: ${data.error}`, "fa-solid fa-triangle-exclamation text-red-400"); }
                 }, 600);
