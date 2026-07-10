@@ -183,46 +183,6 @@
         </div>
     </div>
 
-    <!-- Guide Modal สำหรับโรงเรียนอื่นนำไปใช้ -->
-    <div id="guide-modal" class="modal-bg">
-        <div class="modal-box flex flex-col items-center justify-center relative w-full max-w-md p-6">
-            <button onclick="this.closest('.modal-bg').classList.remove('active')" class="absolute top-4 right-4 w-8 h-8 bg-slate-100 rounded-full text-slate-500 font-black"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="text-[16px] font-black text-blue-600 mb-4 w-full text-center border-b border-slate-100 pb-3"><i class="fa-solid fa-share-nodes"></i> นำระบบนี้ไปใช้กับโรงเรียนคุณ</h3>
-            <div class="text-[13px] text-slate-700 space-y-3 font-bold w-full overflow-y-auto max-h-[60vh] scroll-fine pr-2">
-                <p class="text-center text-slate-500 mb-2">สร้างฐานข้อมูล PWA เป็นของคุณเองฟรี 100%:</p>
-                
-                <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
-                    <span class="text-blue-700 font-black text-[14px] mb-2 block"><i class="fa-solid fa-1"></i> คัดลอกแม่แบบ & เปลี่ยนรายชื่อ</span>
-                    <p class="mb-2 font-medium text-[12px] leading-relaxed">ไฟล์แม่แบบที่คัดลอกไป จะมีรายชื่อของนักเรียนโรงเรียนเดิมอยู่ <u class="text-red-500">คุณครูต้องลบชื่อเดิมออก</u> และพิมพ์ข้อมูลนักเรียนของท่านใหม่ดังนี้:</p>
-                    <ul class="list-disc ml-5 mb-3 space-y-1 text-slate-600 font-black text-[12px]">
-                        <li><b>คอลัมน์ A (Name):</b> พิมพ์ ชื่อ-สกุล นักเรียน</li>
-                        <li><b>คอลัมน์ B (Room):</b> พิมพ์ ชั้น/ห้องเรียน (จัดรูปแบบคอลัมน์เป็น <u>ข้อความธรรมดา</u> ก่อนพิมพ์ เช่น 1/1, 1/2)</li>
-                        <li><b>คอลัมน์ C (Score):</b> ใส่คะแนนเริ่มต้น 100 ทุกคน</li>
-                        <li><b>คอลัมน์ D, E, F:</b> ปล่อยทิ้งว่างไว้ (ระบบจะจัดการเอง)</li>
-                    </ul>
-                    <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="w-full bg-blue-600 text-white px-3 py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition font-black"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบ</a>
-                </div>
-                
-                <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-sm">
-                    <span class="text-amber-700 font-black text-[14px] mb-2 block"><i class="fa-solid fa-2"></i> เปิดใช้งานระบบ API (Deploy)</span>
-                    <ul class="list-decimal ml-4 space-y-1.5 text-slate-600 font-bold text-[12px] leading-relaxed">
-                        <li>ใน Google Sheets ที่เพิ่งทำสำเนาไป ให้คลิกเมนู <b>ส่วนขยาย (Extensions)</b> > <b>Apps Script</b></li>
-                        <li>สังเกตมุมขวาบน กดปุ่มสีน้ำเงิน <b>การทำให้ใช้งานได้ (Deploy)</b> > <b>การทำให้ใช้งานได้รายการใหม่ (New deployment)</b></li>
-                        <li>คลิกสัญลักษณ์ฟันเฟือง ⚙️ ทางซ้าย เลือก <b>เว็บแอป (Web app)</b></li>
-                        <li>ตรงสิทธิ์การเข้าถึง (Who has access) ด้านล่าง <u class="text-red-500 font-black">ต้องเปลี่ยนเป็น "ทุกคน (Anyone)"</u></li>
-                        <li>กด <b>Deploy</b> (กดยืนยันสิทธิ์อีเมลและกด Advanced > Allow ให้เรียบร้อย)</li>
-                    </ul>
-                </div>
-                
-                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 shadow-sm">
-                    <span class="text-emerald-700 font-black text-[14px] mb-1 block"><i class="fa-solid fa-3"></i> เชื่อมต่อแอปพลิเคชัน</span>
-                    <p class="font-medium text-[12px] leading-relaxed">คัดลอก <b>"URL เว็บแอป"</b> (ที่ลงท้ายด้วย <i>/exec</i>) จากขั้นตอนที่แล้ว กลับมาวางในช่อง <u>ลิงก์ฐานข้อมูล</u> ที่หน้าตั้งค่าของแอปนี้ แล้วกดบันทึก เป็นอันเสร็จสิ้น!</p>
-                </div>
-            </div>
-            <button onclick="this.closest('.modal-bg').classList.remove('active')" class="mt-5 w-full bg-slate-800 text-white font-black py-3 shape-btn btn-press shadow-md text-[15px]">เข้าใจแล้ว</button>
-        </div>
-    </div>
-
     <!-- Multi-Select Student Modal -->
     <div id="student-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
@@ -325,6 +285,17 @@
                     <p class="font-arabic text-[32px] font-bold text-accent leading-loose mt-2 mb-1" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
                     <p class="text-[14px] font-black text-slate-700 leading-relaxed bg-white/50 px-3 py-2 rounded-xl shadow-inner border border-white/50 inline-block mb-4">"คนที่ดีที่สุด คือคนที่สร้างประโยชน์ให้แก่เพื่อนมนุษย์ได้มากที่สุด"</p>
                 </div>
+                
+                <div class="glass-panel shape-card p-6">
+                    <h3 class="text-[13px] font-black text-primary uppercase tracking-widest mb-4 glow-text"><i class="fa-solid fa-chalkboard-user mr-1"></i> วิธีการใช้งานสำหรับครู</h3>
+                    <ul class="space-y-3 text-[13px] text-slate-700 font-bold leading-relaxed">
+                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">1</div>การหักคะแนนจะถูกล็อกด้วยรหัสผ่านส่วนตัว (PIN) รหัสจะถูกจำไว้ 12 ชั่วโมง</li>
+                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">2</div>ระบบบังคับเลือกห้องเรียนก่อน เพื่อให้การค้นหารายชื่อในขั้นตอนต่อไปรวดเร็วขึ้น</li>
+                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">3</div>เลือกเด็กและฐานความผิดได้หลายรายการพร้อมกัน และปรับแก้คะแนนได้อิสระ</li>
+                        <li class="flex gap-3"><div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0">4</div>หลังจากอัปเดตคะแนน ระบบจะดึงข้อมูลใหม่เบื้องหลัง และยังคงอยู่หน้าเดิมของห้องนั้นๆ เพื่อให้ทำรายการเคสต่อไปได้ทันที</li>
+                    </ul>
+                </div>
+
                 <div class="glass-panel shape-card p-6">
                     <h3 class="text-[13px] font-black text-red-600 uppercase tracking-widest mb-4 glow-text"><i class="fa-solid fa-triangle-exclamation mr-1"></i> มาตรการควบคุม</h3>
                     <div class="space-y-2 mb-5">
@@ -332,7 +303,52 @@
                         <div class="bg-amber-50/80 p-3 rounded-xl shadow-sm text-[12px] border border-amber-200/50"><span class="font-black text-amber-600 text-sm mr-1">≤ 30 คะแนน :</span> เตือน/โทรแจ้งผู้ปกครอง</div>
                         <div class="bg-red-50/80 p-3 rounded-xl shadow-sm text-[12px] border border-red-200/50"><span class="font-black text-red-600 text-sm mr-1">≤ 0 คะแนน :</span> เชิญผู้ปกครอง / พักการเรียน</div>
                     </div>
+                    
+                    <h3 class="text-[12px] font-black text-slate-500 uppercase tracking-widest mb-3 mt-5">บัญชีเกณฑ์มาตรฐานเบื้องต้น</h3>
+                    <div class="overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-white/60">
+                        <table class="w-full text-left text-[13px] border-collapse" id="criteriaTable">
+                            <thead class="bg-slate-800 text-white"><tr><th class="p-3 font-bold">รายการ / ฐานความผิด</th><th class="p-3 font-bold text-center w-20">คะแนน</th></tr></thead>
+                            <tbody class="divide-y divide-slate-200/50 text-slate-700 font-bold"></tbody>
+                        </table>
+                    </div>
                 </div>
+
+                <!-- วิธีนำระบบไปใช้สำหรับโรงเรียนอื่น -->
+                <div class="glass-panel shape-card p-6 border-t-[5px] border-t-emerald-500">
+                    <h3 class="text-[14px] font-black text-emerald-600 mb-3 glow-text"><i class="fa-solid fa-share-nodes mr-1"></i> การนำระบบไปใช้กับโรงเรียนอื่น</h3>
+                    <p class="text-[12px] font-bold text-slate-600 mb-4 leading-relaxed">แอปพลิเคชันนี้ใช้งานฟรี 100% โดยใช้ Google Sheets เป็นฐานข้อมูล ท่านสามารถสร้างฐานข้อมูลของท่านเองได้ใน 3 ขั้นตอน:</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
+                            <span class="text-blue-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-1"></i> คัดลอกแม่แบบ & เปลี่ยนรายชื่อ</span>
+                            <p class="mb-2 font-medium text-[11px] leading-relaxed text-slate-700">ลบชื่อนักเรียนโรงเรียนเดิมออก และพิมพ์ข้อมูลนักเรียนของท่านใหม่ดังนี้:</p>
+                            <ul class="list-disc ml-4 mb-3 space-y-1 text-slate-600 font-black text-[11px]">
+                                <li><b>A (Name):</b> พิมพ์ ชื่อ-สกุล</li>
+                                <li><b>B (Room):</b> พิมพ์ ชั้น/ห้อง (จัดรูปแบบคอลัมน์เป็น <u>ข้อความธรรมดา</u> ก่อนพิมพ์ เช่น 1/1)</li>
+                                <li><b>C (Score):</b> ใส่คะแนนเริ่มต้น 100 ทุกคน</li>
+                                <li><b>D, E, F:</b> ปล่อยทิ้งว่างไว้ (ระบบจะจัดการเอง)</li>
+                            </ul>
+                            <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="w-full bg-blue-600 text-white px-3 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition font-black text-[12px]"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบ</a>
+                        </div>
+                        
+                        <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-sm">
+                            <span class="text-amber-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-2"></i> เปิดใช้งานระบบ API (Deploy)</span>
+                            <ul class="list-decimal ml-4 space-y-1.5 text-slate-700 font-bold text-[11px] leading-relaxed">
+                                <li>คลิกเมนู <b>ส่วนขยาย (Extensions)</b> > <b>Apps Script</b></li>
+                                <li>กดปุ่มสีน้ำเงิน <b>การทำให้ใช้งานได้ (Deploy)</b> > <b>การทำให้ใช้งานได้รายการใหม่</b></li>
+                                <li>คลิกฟันเฟือง ⚙️ ทางซ้าย เลือก <b>เว็บแอป (Web app)</b></li>
+                                <li>สิทธิ์การเข้าถึง (Who has access) <u class="text-red-500 font-black">ต้องเปลี่ยนเป็น "ทุกคน (Anyone)"</u></li>
+                                <li>กด <b>Deploy</b> (กดยืนยันสิทธิ์อีเมลให้เรียบร้อย)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 shadow-sm">
+                            <span class="text-emerald-700 font-black text-[13px] mb-1 block"><i class="fa-solid fa-3"></i> เชื่อมต่อแอปพลิเคชัน</span>
+                            <p class="font-medium text-[11px] leading-relaxed text-slate-700">คัดลอก <b>"URL เว็บแอป"</b> (ที่ลงท้ายด้วย <i>/exec</i>) จากขั้นตอนที่แล้ว กลับมาวางในช่อง <u>ลิงก์ฐานข้อมูล</u> ที่หน้า <b>ตั้งค่าระบบ</b> ของแอปพลิเคชันนี้ แล้วกดบันทึก เป็นอันเสร็จสิ้น!</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -515,7 +531,7 @@
                     
                     <div class="mb-5 p-4 bg-blue-50 border border-blue-200 rounded-xl shadow-sm mt-3">
                         <h4 class="text-[13px] font-black text-blue-700 mb-2"><i class="fa-solid fa-share-nodes mr-1"></i> สำหรับโรงเรียนอื่นที่อยากนำระบบไปใช้</h4>
-                        <button type="button" onclick="document.getElementById('guide-modal').classList.add('active')" class="w-full bg-white text-blue-600 font-bold px-4 py-2.5 shape-btn text-[13px] border border-blue-300 shadow-sm btn-press"><i class="fa-solid fa-book-open mr-1"></i> ดูวิธีสร้างฐานข้อมูล (ทำง่ายใน 3 ขั้นตอน)</button>
+                        <button type="button" onclick="switchView('view-guide')" class="w-full bg-white text-blue-600 font-bold px-4 py-2.5 shape-btn text-[13px] border border-blue-300 shadow-sm btn-press"><i class="fa-solid fa-book-open mr-1"></i> ดูวิธีสร้างฐานข้อมูล (ทำง่ายใน 3 ขั้นตอน)</button>
                     </div>
 
                     <div class="border-t border-slate-300/30 pt-5">
@@ -624,7 +640,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const uploadEl = document.getElementById('set-bg-upload'); if(uploadEl) uploadEl.addEventListener('change', handleImageUpload);
             const logoUploadEl = document.getElementById('set-logo-upload'); if(logoUploadEl) logoUploadEl.addEventListener('change', handleLogoUpload);
-            applyPrefs(); setupPWA();
+            initCriteriaTable(); applyPrefs(); setupPWA();
             if(CONFIG.GAS_URL) { fetchStudentData(); } 
             else { document.getElementById('splash-loading-text').innerText = "กรุณาตั้งค่าลิงก์ฐานข้อมูล..."; setTimeout(() => openSettingsView(), 1500); }
         });
@@ -695,6 +711,17 @@
             });
         }
 
+        function initCriteriaTable() {
+            const tb = document.querySelector('#criteriaTable tbody');
+            if(!tb) return;
+            tb.innerHTML = '';
+            offenseList.forEach(item => {
+                let ptsText = item.points === 0 ? "ระบุเอง" : (item.points > 0 ? `+${item.points}` : item.points);
+                if (item.value === "ทำลายทรัพย์สินโรงเรียน") ptsText = "-20 ถึง -70";
+                tb.innerHTML += `<tr><td class="p-3 border-b border-slate-200/50">${item.text}</td><td class="p-3 text-center font-black ${item.points > 0 ? 'text-emerald-600' : 'text-red-500'} border-b border-slate-200/50">${ptsText}</td></tr>`;
+            });
+        }
+
         function populateRoomFilters() {
             cachedRooms = [...new Set(cachedStudents.map(s => String(s.room)))].filter(r => r && r!=="ไม่ระบุ").sort();
             let opsAll = '<option value="all">รวมทั้งโรงเรียน</option>';
@@ -758,11 +785,11 @@
 
                 let suspBadge = getSuspensionBadge(student.suspensionCount);
                 
-                let safeNameAttr = String(student.name).toLowerCase();
-                let safeRoomAttr = String(student.room);
+                let safeNameAttr = String(student.name).replace(/"/g, '&quot;');
+                let safeRoomAttr = String(student.room).replace(/"/g, '&quot;');
 
                 htmlStr += `
-                    <div class="student-card-item glass-panel shape-card p-5 shadow-sm border-l-[5px] ${borderColor} fade-in cursor-pointer overflow-hidden transition-all duration-300" data-name="${safeNameAttr}" data-room="${safeRoomAttr}" onclick="this.classList.toggle('expanded')">
+                    <div class="student-card-item glass-panel shape-card p-5 shadow-sm border-l-[5px] ${borderColor} fade-in cursor-pointer overflow-hidden transition-all duration-300" data-name="${safeNameAttr.toLowerCase()}" data-room="${safeRoomAttr}" onclick="this.classList.toggle('expanded')">
                         <div class="flex justify-between items-center">
                             <div class="flex-1 pr-3"><h3 class="text-[17px] font-black text-accent leading-tight">${student.name}</h3><div class="mt-1"><span class="text-[10px] font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-md shadow-sm"><i class="fa-solid fa-users text-blue-400"></i> ${student.room}</span></div></div>
                             <div class="w-12 h-12 rounded-full flex items-center justify-center font-black text-[18px] ${statusClass} shadow-inner shrink-0">${student.score}</div>
@@ -881,7 +908,7 @@
             const grid = document.getElementById('form-room-grid');
             let htmlStr = '';
             cachedRooms.forEach(r => {
-                const safeR = String(r).replace(/'/g, "\\'"); // กัน error เครื่องหมายคำพูด
+                const safeR = String(r).replace(/'/g, "\\'"); 
                 htmlStr += `<button onclick="openFormView('${safeR}')" class="glass-panel shape-card p-5 flex flex-col items-center justify-center text-center btn-press shadow-sm border-t-[4px] border-t-blue-500"><i class="fa-solid fa-door-open text-3xl text-blue-500 mb-2 opacity-80"></i><span class="font-black text-slate-700 text-[16px]">${r}</span></button>`;
             });
             if(cachedRooms.length === 0) htmlStr = '<div class="col-span-2 text-center py-6 text-slate-500 font-bold">ไม่มีข้อมูลห้องเรียน</div>';
@@ -905,9 +932,9 @@
             const roomStudents = cachedStudents.filter(s => String(s.room) === currentManageRoom);
             
             roomStudents.forEach(s => {
-                const safeName = String(s.name);
-                const checked = selectedStudentsList.includes(safeName) ? 'checked' : '';
-                htmlStr += `<label class="student-modal-item flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100 mb-2 cursor-pointer" data-name="${safeName.toLowerCase()}"><div><p class="font-black text-accent text-[15px]">${safeName}</p><p class="text-[11px] font-bold mt-0.5"><span class="text-slate-400">คะแนนคงเหลือ: ${s.score}</span></p></div><div class="checkbox-container relative"><input type="checkbox" class="absolute opacity-0 w-0 h-0 st-checkbox" value="${safeName}" ${checked} onchange="updateStudentCount()"><div class="custom-checkbox"></div></div></label>`;
+                const safeNameAttr = String(s.name).replace(/"/g, '&quot;');
+                const checked = selectedStudentsList.includes(s.name) ? 'checked' : '';
+                htmlStr += `<label class="student-modal-item flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100 mb-2 cursor-pointer" data-name="${safeNameAttr.toLowerCase()}"><div><p class="font-black text-accent text-[15px]">${s.name}</p><p class="text-[11px] font-bold mt-0.5"><span class="text-slate-400">คะแนนคงเหลือ: ${s.score}</span></p></div><div class="checkbox-container relative"><input type="checkbox" class="absolute opacity-0 w-0 h-0 st-checkbox" value="${safeNameAttr}" ${checked} onchange="updateStudentCount()"><div class="custom-checkbox"></div></div></label>`;
             });
             
             if(roomStudents.length === 0) {
@@ -939,18 +966,10 @@
         }
         
         function updateStudentCount() {
-            const allChecked = document.querySelectorAll('.st-checkbox:checked').length;
-            let visibleCnt = 0; let visibleCheckedCnt = 0;
-            
-            document.querySelectorAll('.student-modal-item').forEach(item => {
-                if (item.style.display !== 'none') {
-                    visibleCnt++;
-                    const cb = item.querySelector('.st-checkbox');
-                    if (cb && cb.checked) visibleCheckedCnt++;
-                }
-            });
-            
-            document.getElementById('student-select-count').innerText = `เลือกแล้ว ${allChecked} คน`;
+            const cnt = document.querySelectorAll('.st-checkbox:checked').length; 
+            const visibleCnt = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox').length; 
+            const visibleCheckedCnt = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox:checked').length;
+            document.getElementById('student-select-count').innerText = `เลือกแล้ว ${cnt} คน`;
             document.getElementById('btn-select-all-std').innerText = (visibleCnt > 0 && visibleCheckedCnt === visibleCnt) ? 'ยกเลิกทั้งหมด (ที่แสดง)' : 'เลือกทั้งหมด (ที่แสดง)';
         }
         
