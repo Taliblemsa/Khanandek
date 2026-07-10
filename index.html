@@ -193,12 +193,12 @@
                 
                 <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
                     <span class="text-blue-700 font-black text-[14px] mb-2 block"><i class="fa-solid fa-1"></i> คัดลอกแม่แบบ & เปลี่ยนรายชื่อ</span>
-                    <p class="mb-2 font-medium text-[12px] leading-relaxed">ไฟล์แม่แบบที่คัดลอกไป จะมีรายชื่อนักเรียนของ "โรงเรียนสันติธรรมวิทยามูลนิธิ" ติดอยู่ คุณครูต้องลบชื่อเดิมออก และพิมพ์ข้อมูลนักเรียนของท่านใหม่ดังนี้:</p>
+                    <p class="mb-2 font-medium text-[12px] leading-relaxed">ไฟล์แม่แบบที่คัดลอกไป จะมีรายชื่อของนักเรียนโรงเรียนเดิมอยู่ <u class="text-red-500">คุณครูต้องลบชื่อเดิมออก</u> และพิมพ์ข้อมูลนักเรียนของท่านใหม่ดังนี้:</p>
                     <ul class="list-disc ml-5 mb-3 space-y-1 text-slate-600 font-black text-[12px]">
-                        <li><b>คอลัมน์ A (Name):</b> พิมพ์ <span class="text-red-500">ชื่อ-สกุล</span> นักเรียน</li>
-                        <li><b>คอลัมน์ B (Room):</b> พิมพ์ <span class="text-blue-500">ชั้น/ห้องเรียน</span> (เช่น 1/1, 1/2)</li>
-                        <li><b>คอลัมน์ C (Score):</b> ใส่คะแนน <span class="text-emerald-500">100</span> ทุกคน</li>
-                        <li><b>คอลัมน์ D, E, F:</b> <u class="text-amber-600">ปล่อยทิ้งว่างไว้</u> (ระบบจะจัดการเอง)</li>
+                        <li><b>คอลัมน์ A (Name):</b> พิมพ์ ชื่อ-สกุล นักเรียน</li>
+                        <li><b>คอลัมน์ B (Room):</b> พิมพ์ ชั้น/ห้องเรียน (จัดรูปแบบคอลัมน์เป็น <u>ข้อความธรรมดา</u> ก่อนพิมพ์ เช่น 1/1, 1/2)</li>
+                        <li><b>คอลัมน์ C (Score):</b> ใส่คะแนนเริ่มต้น 100 ทุกคน</li>
+                        <li><b>คอลัมน์ D, E, F:</b> ปล่อยทิ้งว่างไว้ (ระบบจะจัดการเอง)</li>
                     </ul>
                     <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="w-full bg-blue-600 text-white px-3 py-2.5 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition font-black"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบ</a>
                 </div>
@@ -223,7 +223,7 @@
         </div>
     </div>
 
-    <!-- Multi-Select Student Modal (ไม่มีตัวกรองห้องแล้ว เพราะล็อกห้องมาจากหน้าฟอร์ม) -->
+    <!-- Multi-Select Student Modal -->
     <div id="student-select-modal" class="modal-fullscreen">
         <div class="bg-white p-4 shadow-sm z-10 flex items-center gap-3">
             <button onclick="closeStudentModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 btn-press"><i class="fa-solid fa-arrow-left"></i></button>
@@ -233,7 +233,6 @@
         <div class="p-4 bg-white border-b border-slate-100">
             <div class="relative w-full">
                 <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
-                <!-- ค้นหาด้วยชื่อ -->
                 <input type="text" id="modal-search-student" class="w-full bg-slate-100 border-none rounded-xl py-3 pl-11 pr-4 font-bold text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-[14px]" placeholder="ค้นหาชื่อ..." onkeyup="filterStudentModal()">
             </div>
             <div class="flex justify-between items-center mt-3 px-1">
@@ -267,7 +266,7 @@
             </div>
         </section>
 
-        <!-- ================= VIEW 1: HOME (Premium Dashboard) ================= -->
+        <!-- ================= VIEW 1: HOME ================= -->
         <section id="view-home" class="hidden flex flex-col items-center justify-center flex-1 w-full px-1">
             <header class="text-center mb-8 w-full flex flex-col items-center mt-2">
                 <div class="w-28 h-28 bg-white/30 rounded-[2rem] shadow-2xl flex items-center justify-center mb-5 relative overflow-hidden group app-logo-container p-2 border border-white/50 backdrop-blur-md logo-pulse"></div>
@@ -276,7 +275,6 @@
             </header>
 
             <div class="w-full flex flex-col gap-3">
-                <!-- Record Button (Primary) กดปุ๊บเช็ครหัส แล้วไปหน้าเลือกห้อง -->
                 <button onclick="openFormWithPin('form-room')" class="glass-panel shape-card relative overflow-hidden p-5 flex items-center gap-4 text-left btn-press group border-l-[6px] border-l-emerald-500 shadow-lg">
                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center text-2xl shadow-md shrink-0"><i class="fa-solid fa-user-shield"></i></div>
                     <div class="flex-1">
@@ -286,7 +284,6 @@
                     <div class="w-8 h-8 rounded-full bg-slate-100/50 flex items-center justify-center text-slate-400"><i class="fa-solid fa-chevron-right"></i></div>
                 </button>
 
-                <!-- Dashboard / Leaderboard Grid -->
                 <div class="grid grid-cols-2 gap-3 w-full">
                     <button onclick="switchView('view-dashboard')" class="glass-panel shape-card p-5 flex flex-col items-center text-center btn-press group border-t-[4px] border-t-blue-500 shadow-md">
                         <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-3 shadow-inner"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
@@ -608,7 +605,7 @@
         let cachedStudents = []; let cachedRooms = [];
         let pinTargetView = null; let tempTargetStudent = null;
         let selectedStudentsList = []; let selectedOffensesList = [];
-        let currentManageRoom = ''; // ตัวแปรเก็บค่าห้องปัจจุบันที่กำลังจัดการคะแนน
+        let currentManageRoom = '';
 
         function applyPrefs() {
             document.documentElement.style.setProperty('--glass-opacity', (earlyPrefs.cardOpacity||15) / 100);
@@ -699,7 +696,7 @@
         }
 
         function populateRoomFilters() {
-            cachedRooms = [...new Set(cachedStudents.map(s => s.room))].filter(r => r && r!=="ไม่ระบุ").sort();
+            cachedRooms = [...new Set(cachedStudents.map(s => String(s.room)))].filter(r => r && r!=="ไม่ระบุ").sort();
             let opsAll = '<option value="all">รวมทั้งโรงเรียน</option>';
             let opsDash = '<option value="all">ทุกห้องเรียน</option>';
             cachedRooms.forEach(r => { opsAll+=`<option value="${r}">${r}</option>`; opsDash+=`<option value="${r}">${r}</option>`; });
@@ -760,9 +757,12 @@
                 }
 
                 let suspBadge = getSuspensionBadge(student.suspensionCount);
+                
+                let safeNameAttr = String(student.name).toLowerCase();
+                let safeRoomAttr = String(student.room);
 
                 htmlStr += `
-                    <div class="student-card-item glass-panel shape-card p-5 shadow-sm border-l-[5px] ${borderColor} fade-in cursor-pointer overflow-hidden transition-all duration-300" data-name="${student.name.toLowerCase()}" data-room="${student.room}" onclick="this.classList.toggle('expanded')">
+                    <div class="student-card-item glass-panel shape-card p-5 shadow-sm border-l-[5px] ${borderColor} fade-in cursor-pointer overflow-hidden transition-all duration-300" data-name="${safeNameAttr}" data-room="${safeRoomAttr}" onclick="this.classList.toggle('expanded')">
                         <div class="flex justify-between items-center">
                             <div class="flex-1 pr-3"><h3 class="text-[17px] font-black text-accent leading-tight">${student.name}</h3><div class="mt-1"><span class="text-[10px] font-bold text-blue-600 bg-blue-50 border border-blue-100 px-2 py-0.5 rounded-md shadow-sm"><i class="fa-solid fa-users text-blue-400"></i> ${student.room}</span></div></div>
                             <div class="w-12 h-12 rounded-full flex items-center justify-center font-black text-[18px] ${statusClass} shadow-inner shrink-0">${student.score}</div>
@@ -782,13 +782,14 @@
             const q = document.getElementById('searchStudent').value.toLowerCase();
             const r = document.getElementById('filter-room-dashboard').value;
             document.querySelectorAll('.student-card-item').forEach(item => {
-                const matchName = item.dataset.name.includes(q);
-                const matchRoom = (r === 'all' || item.dataset.room === r);
+                const dataName = item.getAttribute('data-name') || "";
+                const dataRoom = item.getAttribute('data-room') || "";
+                const matchName = dataName.includes(q);
+                const matchRoom = (r === 'all' || dataRoom === r);
                 item.style.display = (matchName && matchRoom) ? 'block' : 'none';
             });
         }
 
-        // ------------------ MANAGE STATUS (HOMEROOM TEACHER) ------------------
         function openManageStatusModal(studentName) {
             const st = cachedStudents.find(s => s.name === studentName);
             if(!st) return;
@@ -837,7 +838,7 @@
         function renderLeaderboard() {
             const rFilter = document.getElementById('stat-room-filter').value;
             let filteredStudents = cachedStudents;
-            if(rFilter !== 'all') filteredStudents = cachedStudents.filter(s => s.room === rFilter);
+            if(rFilter !== 'all') filteredStudents = cachedStudents.filter(s => String(s.room) === rFilter);
             
             const sortedWorst = [...filteredStudents].sort((a,b) => a.score - b.score);
             const worstContainer = document.getElementById('stat-worst-list'); worstContainer.innerHTML = '';
@@ -880,7 +881,8 @@
             const grid = document.getElementById('form-room-grid');
             let htmlStr = '';
             cachedRooms.forEach(r => {
-                htmlStr += `<button onclick="openFormView('${r}')" class="glass-panel shape-card p-5 flex flex-col items-center justify-center text-center btn-press shadow-sm border-t-[4px] border-t-blue-500"><i class="fa-solid fa-door-open text-3xl text-blue-500 mb-2 opacity-80"></i><span class="font-black text-slate-700 text-[16px]">${r}</span></button>`;
+                const safeR = String(r).replace(/'/g, "\\'"); // กัน error เครื่องหมายคำพูด
+                htmlStr += `<button onclick="openFormView('${safeR}')" class="glass-panel shape-card p-5 flex flex-col items-center justify-center text-center btn-press shadow-sm border-t-[4px] border-t-blue-500"><i class="fa-solid fa-door-open text-3xl text-blue-500 mb-2 opacity-80"></i><span class="font-black text-slate-700 text-[16px]">${r}</span></button>`;
             });
             if(cachedRooms.length === 0) htmlStr = '<div class="col-span-2 text-center py-6 text-slate-500 font-bold">ไม่มีข้อมูลห้องเรียน</div>';
             grid.innerHTML = htmlStr;
@@ -888,7 +890,7 @@
         }
 
         function openFormView(room) {
-            currentManageRoom = room;
+            currentManageRoom = String(room);
             document.getElementById('form-active-room').innerText = "ห้อง " + room;
             if(!document.getElementById('recordDate').value) { document.getElementById('recordDate').value = new Date().toISOString().split('T')[0]; }
             selectedStudentsList = []; selectedOffensesList = [];
@@ -900,12 +902,17 @@
             const list = document.getElementById('modal-student-list');
             let htmlStr = '';
             
-            const roomStudents = cachedStudents.filter(s => s.room === currentManageRoom);
+            const roomStudents = cachedStudents.filter(s => String(s.room) === currentManageRoom);
             
             roomStudents.forEach(s => {
-                const checked = selectedStudentsList.includes(s.name) ? 'checked' : '';
-                htmlStr += `<label class="student-modal-item flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100 mb-2 cursor-pointer" data-name="${s.name.toLowerCase()}"><div><p class="font-black text-accent text-[15px]">${s.name}</p><p class="text-[11px] font-bold mt-0.5"><span class="text-slate-400">คะแนนคงเหลือ: ${s.score}</span></p></div><div class="checkbox-container relative"><input type="checkbox" class="absolute opacity-0 w-0 h-0 st-checkbox" value="${s.name}" ${checked} onchange="updateStudentCount()"><div class="custom-checkbox"></div></div></label>`;
+                const safeName = String(s.name);
+                const checked = selectedStudentsList.includes(safeName) ? 'checked' : '';
+                htmlStr += `<label class="student-modal-item flex items-center justify-between p-4 bg-white rounded-xl shadow-sm border border-slate-100 mb-2 cursor-pointer" data-name="${safeName.toLowerCase()}"><div><p class="font-black text-accent text-[15px]">${safeName}</p><p class="text-[11px] font-bold mt-0.5"><span class="text-slate-400">คะแนนคงเหลือ: ${s.score}</span></p></div><div class="checkbox-container relative"><input type="checkbox" class="absolute opacity-0 w-0 h-0 st-checkbox" value="${safeName}" ${checked} onchange="updateStudentCount()"><div class="custom-checkbox"></div></div></label>`;
             });
+            
+            if(roomStudents.length === 0) {
+                htmlStr = '<div class="text-center py-6 text-slate-500 font-bold">ไม่มีข้อมูลนักเรียนในห้องนี้</div>';
+            }
             
             list.innerHTML = htmlStr;
             
@@ -924,24 +931,39 @@
             const q = searchInput.value.toLowerCase();
             
             document.querySelectorAll('.student-modal-item').forEach(item => { 
-                const matchName = item.dataset.name.includes(q); 
+                const dataName = item.getAttribute('data-name') || "";
+                const matchName = dataName.includes(q); 
                 item.style.display = matchName ? 'flex' : 'none'; 
             });
             updateStudentCount();
         }
         
         function updateStudentCount() {
-            const cnt = document.querySelectorAll('.st-checkbox:checked').length; 
-            const visibleCnt = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox').length; 
-            const visibleCheckedCnt = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox:checked').length;
-            document.getElementById('student-select-count').innerText = `เลือกแล้ว ${cnt} คน`;
+            const allChecked = document.querySelectorAll('.st-checkbox:checked').length;
+            let visibleCnt = 0; let visibleCheckedCnt = 0;
+            
+            document.querySelectorAll('.student-modal-item').forEach(item => {
+                if (item.style.display !== 'none') {
+                    visibleCnt++;
+                    const cb = item.querySelector('.st-checkbox');
+                    if (cb && cb.checked) visibleCheckedCnt++;
+                }
+            });
+            
+            document.getElementById('student-select-count').innerText = `เลือกแล้ว ${allChecked} คน`;
             document.getElementById('btn-select-all-std').innerText = (visibleCnt > 0 && visibleCheckedCnt === visibleCnt) ? 'ยกเลิกทั้งหมด (ที่แสดง)' : 'เลือกทั้งหมด (ที่แสดง)';
         }
         
         function selectAllStudentsToggle() {
-            const visibleItems = document.querySelectorAll('.student-modal-item[style!="display: none;"] .st-checkbox'); 
-            const shouldCheck = document.getElementById('btn-select-all-std').innerText.includes('เลือกทั้งหมด');
-            visibleItems.forEach(b => b.checked = shouldCheck); 
+            const btnText = document.getElementById('btn-select-all-std').innerText;
+            const shouldCheck = btnText.includes('เลือกทั้งหมด');
+            
+            document.querySelectorAll('.student-modal-item').forEach(item => {
+                if (item.style.display !== 'none') {
+                    const cb = item.querySelector('.st-checkbox');
+                    if (cb) cb.checked = shouldCheck;
+                }
+            });
             updateStudentCount();
         }
         
