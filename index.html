@@ -281,7 +281,6 @@
             </div>
             
             <div class="overflow-y-auto scroll-fine flex-1 space-y-4 px-1 pb-10">
-                
                 <div class="glass-panel shape-card p-6">
                     <h3 class="text-[16px] font-black text-blue-600 mb-2 glow-text">📝 ระบบบันทึกคะแนนความประพฤตินักเรียน</h3>
                     <p class="text-[13px] text-slate-700 font-medium leading-relaxed mb-2">แอปพลิเคชันบนเว็บ (Web Application) สำหรับจัดการและบันทึกคะแนนความประพฤติของนักเรียน ออกแบบมาเพื่อช่วยอำนวยความสะดวกให้คณะครูประจำชั้นและครูผู้สอนในการตัด/เพิ่มคะแนนอย่างเป็นระบบ รวดเร็ว และประเมินผลได้ทันที</p>
@@ -324,7 +323,6 @@
                     <p class="text-[13px] font-medium leading-relaxed opacity-90 mb-3">พัฒนาและออกแบบโดย: <b class="text-white font-black text-[14px]">ครูอาณัติ เหล็มสะ</b></p>
                     <p class="text-[11px] font-light opacity-70 leading-relaxed">หากระบบนี้เป็นประโยชน์ต่อโรงเรียนหรือองค์กรของคุณ สามารถนำไปใช้งาน พัฒนาต่อยอด หรือแชร์ต่อเพื่อเป็นวิทยาทานได้เลยครับ ยินดีเป็นอย่างยิ่งครับ 😊</p>
                 </div>
-
             </div>
         </section>
 
@@ -363,7 +361,6 @@
                 <div class="mb-3">
                     <select id="stat-room-filter" class="input-field shape-input py-2.5 text-[14px] font-black shadow-sm" onchange="renderLeaderboard()"><option value="all">รวมทั้งโรงเรียน</option></select>
                 </div>
-                
                 <div class="glass-panel shape-card p-4 border-t-[5px] border-t-yellow-400">
                     <h3 class="text-[12px] font-black text-yellow-600 uppercase tracking-widest mb-3 glow-text text-center"><i class="fa-solid fa-arrow-trend-down mr-1"></i> นักเรียนที่ถูกหักคะแนน (เฝ้าระวัง)</h3>
                     <div id="stat-worst-list"></div>
@@ -505,22 +502,40 @@
                     <label class="text-[12px] font-bold text-slate-700 glow-text mb-2 block border-t border-slate-300/30 pt-4">ลิงก์ฐานข้อมูล (Google Apps Script URL)</label>
                     <input type="text" id="set-gas-url" class="input-field shape-input mb-4" placeholder="วางลิงก์ Web App (Exec)...">
                     
-                    <!-- วิธีสร้างฐานข้อมูลแบบเปิดเผยเต็มๆ ในหน้าตั้งค่า -->
-                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm mt-2 mb-4">
-                        <h4 class="text-[13px] font-black text-blue-700 mb-3"><i class="fa-solid fa-share-nodes mr-1"></i> วิธีสร้างฐานข้อมูล (สำหรับโรงเรียนอื่น)</h4>
-                        <div class="text-[11px] text-slate-700 space-y-3 font-medium leading-relaxed">
-                            <div>
-                                <b class="text-blue-800">1. ทำสำเนาแม่แบบฐานข้อมูล</b><br>
-                                ลบรายชื่อเดิมออก ใส่ข้อมูล: A (ชื่อสกุล), B (ชั้นเรียน เช่น 1/1), C (คะแนนตั้งต้น 100), ส่วน D-F ปล่อยว่าง<br>
-                                <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="text-blue-600 font-black underline mt-1 inline-block"><i class="fa-solid fa-copy"></i> คลิกลิงก์เพื่อทำสำเนาชีต</a>
+                    <div class="border-t border-slate-300/30 pt-6 mt-6">
+                        <h4 class="text-[14px] font-black text-blue-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-share-nodes"></i> วิธีสร้างฐานข้อมูล (สำหรับนำระบบไปใช้)</h4>
+                        
+                        <div class="space-y-4 text-[12px] text-slate-700 font-medium leading-relaxed">
+                            <div class="bg-blue-50/50 p-4 rounded-xl border border-blue-200 shadow-sm">
+                                <span class="text-blue-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-1"></i> ทำสำเนาฐานข้อมูล (Google Sheets Template)</span>
+                                <ul class="list-disc ml-4 space-y-1.5 mb-4 text-slate-600">
+                                    <li>คลิกปุ่มด้านล่างเพื่อทำสำเนาไฟล์เข้าสู่ Google Drive ของคุณ</li>
+                                    <li>ไปที่แท็บ <b>Students</b> ลบข้อมูลตัวอย่างออก และกรอกรายชื่อ:</li>
+                                    <div class="bg-white p-2 rounded border border-slate-100 my-1 font-bold text-[11px]">
+                                        - คอลัมน์ A (Name): ชื่อ-สกุล<br>
+                                        - คอลัมน์ B (Room): ชั้น/ห้องเรียน (ปรับเป็นรูปแบบข้อความธรรมดาก่อนพิมพ์ เช่น 1/1, 1/2)<br>
+                                        - คอลัมน์ C (Score): ใส่คะแนนเริ่มต้น 100 ทุกคน<br>
+                                        - คอลัมน์ D, E, F: ปล่อยว่างไว้
+                                    </div>
+                                </ul>
+                                <a href="https://docs.google.com/spreadsheets/d/11Y4wRTtI4ZI5lwYslNHJVAMlY4Fbx_gukxTez5_CpPg/copy" target="_blank" class="w-full bg-blue-600 text-white px-3 py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition font-black text-[13px] shadow-sm"><i class="fa-solid fa-copy"></i> คลิกคัดลอกไฟล์แม่แบบฐานข้อมูล</a>
                             </div>
-                            <div>
-                                <b class="text-blue-800">2. เปิดใช้งาน API (Deploy)</b><br>
-                                ในชีตไปที่ <i>ส่วนขยาย > Apps Script</i> กด <i>การทำให้ใช้งานได้ > รายการใหม่</i> เลือก <i>เว็บแอป</i> ตั้งสิทธิ์เป็น <b class="text-red-600">"ทุกคน (Anyone)"</b> แล้วกด Deploy
+                            
+                            <div class="bg-amber-50/50 p-4 rounded-xl border border-amber-200 shadow-sm">
+                                <span class="text-amber-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-2"></i> เปิดใช้งานระบบ API (Deploy Apps Script)</span>
+                                <ul class="list-decimal ml-4 space-y-2 text-slate-600 font-bold">
+                                    <li>ในไฟล์ Google Sheets ที่ทำสำเนาไว้ ไปที่เมนู <b>ส่วนขยาย (Extensions)</b> > <b>Apps Script</b></li>
+                                    <li>คลิกปุ่มสีน้ำเงินมุมขวาบน <b>การทำให้ใช้งานได้ (Deploy)</b> > <b>การทำให้ใช้งานได้รายการใหม่ (New deployment)</b></li>
+                                    <li>คลิกฟันเฟือง ⚙️ ด้านซ้าย เลือกประเภท <b>เว็บแอป (Web app)</b></li>
+                                    <li>ตรงส่วน สิทธิ์การเข้าถึง (Who has access) ให้เลือกเป็น <b class="text-red-600 bg-red-100 px-1 rounded">"ทุกคน (Anyone)"</b></li>
+                                    <li>กด <b>Deploy</b> (หากมีการขอสิทธิ์ ให้ล็อกอินอีเมลและกดยอมรับ Advanced > Allow)</li>
+                                    <li>คัดลอก <b>URL เว็บแอป</b> (ที่ลงท้ายด้วย /exec) เก็บเอาไว้</li>
+                                </ul>
                             </div>
-                            <div>
-                                <b class="text-blue-800">3. เชื่อมต่อระบบ</b><br>
-                                คัดลอก URL เว็บแอป (ที่ลงท้ายด้วย /exec) มาวางในช่องด้านบน แล้วกดบันทึก
+                            
+                            <div class="bg-emerald-50/50 p-4 rounded-xl border border-emerald-200 shadow-sm">
+                                <span class="text-emerald-700 font-black text-[13px] mb-2 block"><i class="fa-solid fa-3"></i> เชื่อมต่อแอปพลิเคชัน</span>
+                                <p class="text-slate-600 font-bold leading-relaxed">นำ <b>URL เว็บแอป</b> ที่ได้จากขั้นตอนที่ 2 มาวางลงในช่อง <u>ลิงก์ฐานข้อมูล (Google Apps Script URL)</u> ที่อยู่ด้านบนของหน้านี้ แล้วกดปุ่ม <b>บันทึกการตั้งค่า</b> ด้านล่างสุด เป็นอันเสร็จสิ้น!</p>
                             </div>
                         </div>
                     </div>
@@ -1031,7 +1046,9 @@
                     btn.innerHTML = origHTML; btn.disabled = false; if(progContainer) progContainer.classList.add('hidden');
                     if(data.success) {
                         showToast(`บันทึกเรียบร้อย! ทำรายการต่อได้เลย`, 'fa-solid fa-check text-emerald-400');
+                        // เคลียร์ฟอร์มเตรียมพร้อมสำหรับคนต่อไปของห้องเดิม
                         selectedStudentsList = []; selectedOffensesList = []; renderSelectedStudents(); renderSelectedOffenses(); document.getElementById('notesInput').value = ""; 
+                        // อัปเดตข้อมูลนักเรียนเบื้องหลัง
                         fetchStudentData(true);
                     } else { showToast(`ข้อผิดพลาด: ${data.error}`, "fa-solid fa-triangle-exclamation text-red-400"); }
                 }, 600);
